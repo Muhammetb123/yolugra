@@ -1,0 +1,670 @@
+{
+  "@@locale": "en",
+  "appName": "Ýolugra",
+  "appTagline": "Share the road between cities",
+  "navHome": "Home",
+  "navSearch": "Search",
+  "navPublish": "Publish",
+  "navMyTrips": "My trips",
+  "navProfile": "Profile",
+  "commonContinue": "Continue",
+  "commonSave": "Save",
+  "commonCancel": "Cancel",
+  "commonRetry": "Try again",
+  "commonClose": "Close",
+  "commonDelete": "Delete",
+  "commonEdit": "Edit",
+  "commonConfirm": "Confirm",
+  "commonBack": "Back",
+  "commonNext": "Next",
+  "commonDone": "Done",
+  "commonOptional": "Optional",
+  "commonNotSpecified": "Not specified",
+  "commonCall": "Call",
+  "commonSeeAll": "See all",
+  "commonKeep": "Keep",
+  "commonLoadMore": "Show more",
+  "authWelcomeTitle": "Travel together between cities",
+  "authWelcomeSubtitle": "Find a ride or offer free seats in your car. Sign in with your mobile number.",
+  "authPhoneLabel": "Mobile number",
+  "authPhoneHint": "6X XX XX XX",
+  "authSendCode": "Get code",
+  "authSmsNote": "We will send a one-time code by SMS. Never share it with anyone.",
+  "authCodeTitle": "Enter the code",
+  "authCodeSentTo": "We sent an SMS with a 6-digit code to {phone}",
+  "@authCodeSentTo": {
+    "placeholders": {
+      "phone": {
+        "type": "String"
+      }
+    }
+  },
+  "authCodeLabel": "Code from SMS",
+  "authVerify": "Confirm",
+  "authResendIn": "Send again in {seconds} s",
+  "@authResendIn": {
+    "placeholders": {
+      "seconds": {
+        "type": "int"
+      }
+    }
+  },
+  "authResend": "Send the code again",
+  "authChangeNumber": "Change number",
+  "authCodeResent": "A new code is on its way",
+  "completeProfileTitle": "About you",
+  "completeProfileSubtitle": "Drivers and passengers see your name. Your phone number stays private until a booking is accepted.",
+  "completeProfileButton": "Get started",
+  "firstNameLabel": "First name",
+  "lastNameLabel": "Last name",
+  "bioLabel": "About me",
+  "bioHint": "A few words about you",
+  "validationRequired": "This field is required",
+  "validationPhone": "Enter a Turkmenistan mobile number: 8 digits starting with 6 or 7",
+  "validationCode": "Enter the 6-digit code",
+  "validationTooLong": "Too long, at most {max} characters",
+  "@validationTooLong": {
+    "placeholders": {
+      "max": {
+        "type": "int"
+      }
+    }
+  },
+  "validationPrice": "Enter a price from 0 to 100000",
+  "validationYear": "Enter a year between 1950 and 2100",
+  "validationSeatsVehicle": "Your car has {seats} passenger seats",
+  "@validationSeatsVehicle": {
+    "placeholders": {
+      "seats": {
+        "type": "int"
+      }
+    }
+  },
+  "validationSameStops": "Each city can appear on the route only once",
+  "validationRouteIncomplete": "Choose the departure and destination cities",
+  "validationDepartureFuture": "The departure time must be in the future",
+  "validationDuration": "The trip must last from 15 minutes to 48 hours",
+  "validationVehicle": "Choose a car",
+  "validationSegment": "Choose a pick-up point before the drop-off point",
+  "errorNetwork": "No connection to the server. Check the internet and try again.",
+  "errorTimeout": "The server is taking too long to answer. Please try again.",
+  "errorUnknown": "Something went wrong. Please try again.",
+  "errorValidation": "Some data is not valid. Please check the form.",
+  "errorNotFound": "Not found. It may have been removed.",
+  "errorForbidden": "You are not allowed to do this.",
+  "errorUnauthorized": "Your session has ended. Please sign in again.",
+  "errorUserBlocked": "This account cannot be used.",
+  "errorProfileIncomplete": "Add your first and last name to your profile first.",
+  "errorTripOverlap": "You already have a trip at this time. Your trips must not overlap and need a short break between them.",
+  "errorInsufficientSeats": "There are not enough free seats on this part of the route anymore.",
+  "errorTripNotActive": "This trip is no longer available.",
+  "errorTripStarted": "The trip has already started.",
+  "errorTripNotStarted": "The trip has not started yet.",
+  "errorBookingNotPending": "This request has already been answered.",
+  "errorInvalidSegment": "Choose a pick-up point that comes before the drop-off point.",
+  "errorBookingExists": "You already have a request for this trip.",
+  "errorOwnTrip": "You cannot book your own trip.",
+  "errorInvalidTransition": "This booking can no longer be changed.",
+  "errorReviewNotAllowed": "You can leave a review only after a completed trip.",
+  "errorReviewExists": "You have already reviewed this trip.",
+  "errorSeatsBelowBooked": "Seats cannot be fewer than the seats already accepted.",
+  "errorTripHasBookings": "This cannot be changed while the trip has requests or passengers.",
+  "errorPhoneTaken": "This number is already used by another account.",
+  "errorLocationInactive": "One of the places is not available.",
+  "errorContactUnavailable": "The phone number is shown only after the request is accepted.",
+  "errorUserUnavailable": "You cannot travel with this user.",
+  "errorFileTooLarge": "The photo is too large. Choose one up to 5 MB.",
+  "errorUnsupportedMedia": "Choose a JPEG, PNG or WebP photo.",
+  "errorRateLimited": "Too many attempts. Please wait a moment and try again.",
+  "errorInvalidPhone": "Enter a Turkmenistan mobile number.",
+  "errorInvalidCode": "The code is wrong or has expired.",
+  "errorServer": "The server could not process the request. Please try again later.",
+  "homeGreeting": "Hello, {name}!",
+  "@homeGreeting": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "homeTitle": "Where are you going?",
+  "homeFrom": "From",
+  "homeTo": "To",
+  "homeDate": "Date",
+  "homeAnyDate": "Any day",
+  "homePassengers": "Passengers",
+  "homeSearch": "Find a ride",
+  "homeUpcoming": "Your upcoming trips",
+  "homeRecent": "Recently published",
+  "homeNoRecent": "No upcoming trips yet. Be the first to publish one!",
+  "homePublishTitle": "Driving somewhere?",
+  "homePublishSubtitle": "Offer the free seats in your car and share the road.",
+  "homePublishButton": "Publish a trip",
+  "homeSwap": "Swap cities",
+  "dateToday": "Today",
+  "dateTomorrow": "Tomorrow",
+  "locationPickerTitle": "Choose a place",
+  "locationSearchHint": "City or welayat",
+  "locationEmpty": "Nothing found",
+  "locationTypeWelayat": "Welayat",
+  "locationWholeWelayat": "Whole welayat",
+  "searchTitle": "Find a ride",
+  "searchAnywhere": "Anywhere",
+  "searchFilters": "Filters",
+  "searchSort": "Sort",
+  "searchEmptyTitle": "No rides found",
+  "searchEmptySubtitle": "Try another date, fewer seats or a nearby city.",
+  "sortDeparture": "Earliest departure",
+  "sortPriceAsc": "Lowest price",
+  "sortPriceDesc": "Highest price",
+  "sortRating": "Best rated drivers",
+  "filterPriceMax": "Maximum price per seat",
+  "filterDepartureTime": "Departure time",
+  "filterTimeAny": "Any time",
+  "filterTimeMorning": "Morning (before 12:00)",
+  "filterTimeAfternoon": "Afternoon (12:00–18:00)",
+  "filterTimeEvening": "Evening (after 18:00)",
+  "filterComfort": "Comfort",
+  "filterLuggage": "Luggage at least",
+  "filterMinRating": "Driver rating from 4 stars",
+  "filterApply": "Show rides",
+  "filterReset": "Reset",
+  "seatsLeft": "{count, plural, =0{No free seats} =1{1 seat left} other{{count} seats left}}",
+  "@seatsLeft": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "seatsCount": "{count, plural, =1{1 seat} other{{count} seats}}",
+  "@seatsCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "passengersCount": "{count, plural, =1{1 passenger} other{{count} passengers}}",
+  "@passengersCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "priceAmount": "{amount} TMT",
+  "@priceAmount": {
+    "placeholders": {
+      "amount": {
+        "type": "String"
+      }
+    }
+  },
+  "durationValue": "{hours} h {minutes} min",
+  "@durationValue": {
+    "placeholders": {
+      "hours": {
+        "type": "int"
+      },
+      "minutes": {
+        "type": "int"
+      }
+    }
+  },
+  "ratingValue": "{rating} · {count} reviews",
+  "@ratingValue": {
+    "placeholders": {
+      "rating": {
+        "type": "String"
+      },
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "completedTripsCount": "{count, plural, =0{No trips yet} =1{1 trip} other{{count} trips}}",
+  "@completedTripsCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "newDriver": "New on Ýolugra",
+  "tripTitle": "Trip",
+  "tripRoute": "Route",
+  "tripDriver": "Driver",
+  "tripVehicle": "Car",
+  "tripComfort": "Comfort",
+  "tripDescription": "From the driver",
+  "tripConditions": "Conditions",
+  "tripPerSeat": "per seat",
+  "tripNegotiable": "Price is negotiable",
+  "tripPriceOnRequest": "Ask the driver",
+  "tripApproxArrival": "Arrival ≈ {time}",
+  "@tripApproxArrival": {
+    "placeholders": {
+      "time": {
+        "type": "String"
+      }
+    }
+  },
+  "tripEstimateNote": "Arrival times are the driver's estimate.",
+  "tripMeetingPoint": "Meeting point",
+  "tripPlate": "Plate number",
+  "tripPlateHidden": "The plate number is shown after the driver accepts your request.",
+  "tripYourOwn": "This is your trip",
+  "tripManageRequests": "Manage requests",
+  "tripPaymentNote": "Payment is arranged directly with the driver. Ýolugra does not process payments.",
+  "tripStopPickupOnly": "Boarding only",
+  "tripStopDropoffOnly": "Drop-off only",
+  "bookFormTitle": "Request seats",
+  "bookPickup": "Pick-up",
+  "bookDropoff": "Drop-off",
+  "bookSeats": "Seats",
+  "bookLuggage": "Your luggage",
+  "bookMessage": "Message to the driver",
+  "bookMessageHint": "For example: I will wait at the bus station entrance",
+  "bookFreeOnSegment": "{count, plural, =0{No free seats on this part} =1{1 seat free on this part} other{{count} seats free on this part}}",
+  "@bookFreeOnSegment": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "bookTotal": "Total: {amount}",
+  "@bookTotal": {
+    "placeholders": {
+      "amount": {
+        "type": "String"
+      }
+    }
+  },
+  "bookSubmit": "Send request",
+  "bookNote": "Your seat is confirmed only when the driver accepts the request. The driver's number becomes visible after that.",
+  "bookSent": "Request sent. We will notify you when the driver answers.",
+  "bookViewRequest": "View my request",
+  "amenityAirConditioning": "Air conditioning",
+  "amenityAudio": "Music system",
+  "amenityMusic": "Music",
+  "amenitySmoking": "Smoking",
+  "amenityPets": "Pets",
+  "amenityLuggage": "Luggage",
+  "amenityChildSeat": "Child seat",
+  "amenityConversation": "Conversation",
+  "optionYes": "Yes",
+  "optionNo": "No",
+  "acYes": "Air conditioning",
+  "acNo": "No air conditioning",
+  "audioYes": "Music system",
+  "audioNo": "No music system",
+  "musicAllowed": "Music is welcome",
+  "musicNone": "Prefers no music",
+  "musicDriverDecides": "Driver chooses the music",
+  "smokingAllowed": "Smoking allowed",
+  "smokingProhibited": "No smoking",
+  "petsAllowed": "Pets welcome",
+  "petsNotAllowed": "No pets",
+  "luggageNone": "No extra luggage",
+  "luggageSmall": "Small bags",
+  "luggageMedium": "Medium suitcases",
+  "luggageLarge": "Large suitcases",
+  "childSeatYes": "Child seat available",
+  "childSeatNo": "No child seat",
+  "conversationFriendly": "Enjoys a chat",
+  "conversationQuiet": "Prefers a quiet ride",
+  "conversationNoPreference": "Either is fine",
+  "tripStatusActive": "Published",
+  "tripStatusFull": "Full",
+  "tripStatusInProgress": "On the way",
+  "tripStatusCompleted": "Completed",
+  "tripStatusCancelled": "Cancelled",
+  "tripStatusExpired": "Expired",
+  "bookingStatusPending": "Waiting for answer",
+  "bookingStatusApproved": "Accepted",
+  "bookingStatusRejected": "Declined",
+  "bookingStatusCancelledByPassenger": "Cancelled by passenger",
+  "bookingStatusCancelledByDriver": "Cancelled by driver",
+  "bookingStatusCompleted": "Completed",
+  "bookingStatusExpired": "Expired",
+  "publishTitle": "Publish a trip",
+  "publishStepRoute": "Route",
+  "publishStepSchedule": "When",
+  "publishStepVehicle": "Car",
+  "publishStepComfort": "Comfort",
+  "publishStepPrice": "Price",
+  "publishStepReview": "Review",
+  "publishStepOf": "Step {current} of {total}",
+  "@publishStepOf": {
+    "placeholders": {
+      "current": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+  "publishDeparture": "Departure",
+  "publishDestination": "Destination",
+  "publishChooseCity": "Choose a city",
+  "publishMeetingPoint": "Meeting point",
+  "publishMeetingPointHint": "Exact place, for example the bazaar entrance",
+  "publishAddStop": "Add a stop on the way",
+  "publishStop": "Stop {index}",
+  "@publishStop": {
+    "placeholders": {
+      "index": {
+        "type": "int"
+      }
+    }
+  },
+  "publishStopType": "Passengers can",
+  "stopTypeBoth": "Board and leave",
+  "stopTypePickup": "Only board",
+  "stopTypeDropoff": "Only leave",
+  "publishStopTime": "Estimated time here",
+  "publishRemoveStop": "Remove stop",
+  "publishMoveUp": "Move up",
+  "publishMoveDown": "Move down",
+  "publishDate": "Departure date",
+  "publishTime": "Departure time",
+  "publishDuration": "Estimated trip duration",
+  "publishArrivalPreview": "Estimated arrival: {time}",
+  "@publishArrivalPreview": {
+    "placeholders": {
+      "time": {
+        "type": "String"
+      }
+    }
+  },
+  "publishChooseVehicle": "Which car are you driving?",
+  "publishNoVehicles": "Add your car so passengers can recognise it.",
+  "publishSeats": "Seats for passengers",
+  "publishSeatsHint": "Count only passenger seats, without the driver's seat.",
+  "publishPrice": "Price per seat, TMT",
+  "publishPriceHint": "Leave empty to agree with passengers",
+  "publishNegotiable": "The price is negotiable",
+  "publishDescription": "Trip description",
+  "publishDescriptionHint": "For example: one short stop on the way, two large suitcases fit in the trunk",
+  "publishConditions": "Additional conditions",
+  "publishConditionsHint": "For example: please be on time",
+  "publishSubmit": "Publish the trip",
+  "publishSuccess": "Your trip is published",
+  "publishComfortHint": "All options are optional. Passengers see only what you choose.",
+  "vehiclesTitle": "My cars",
+  "vehicleAdd": "Add a car",
+  "vehicleEdit": "Edit car",
+  "vehicleBrand": "Make",
+  "vehicleBrandHint": "For example Toyota",
+  "vehicleModel": "Model",
+  "vehicleModelHint": "For example Camry",
+  "vehicleColor": "Colour",
+  "vehiclePlate": "Plate number",
+  "vehiclePlateNote": "Only passengers you accept see the plate number.",
+  "vehicleYear": "Year",
+  "vehicleType": "Body type",
+  "vehicleSeats": "Passenger seats",
+  "vehiclePhoto": "Car photo",
+  "vehicleEmpty": "You have not added a car yet",
+  "vehicleDeleteConfirm": "Delete this car?",
+  "vehicleSaved": "Car saved",
+  "vehicleTypeSedan": "Sedan",
+  "vehicleTypeHatchback": "Hatchback",
+  "vehicleTypeWagon": "Estate",
+  "vehicleTypeSuv": "SUV",
+  "vehicleTypeMinivan": "Minivan",
+  "vehicleTypeMinibus": "Minibus",
+  "vehicleTypeOther": "Other",
+  "myTripsTitle": "My trips",
+  "myTripsAsDriver": "As driver",
+  "myTripsAsPassenger": "As passenger",
+  "myTripsHistory": "History",
+  "myTripsEmptyDriver": "You have no upcoming trips as a driver.",
+  "myTripsEmptyPassenger": "You have no upcoming bookings.",
+  "myTripsEmptyHistory": "Your past trips will appear here.",
+  "myTripsNewRequests": "{count, plural, =1{1 new request} other{{count} new requests}}",
+  "@myTripsNewRequests": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "myTripsSeatsBooked": "{booked} of {total} seats taken",
+  "@myTripsSeatsBooked": {
+    "placeholders": {
+      "booked": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+  "historyAsDriverTitle": "Trips I drove",
+  "historyAsPassengerTitle": "Trips I took",
+  "manageTitle": "Trip and requests",
+  "managePending": "New requests",
+  "manageAccepted": "Accepted passengers",
+  "manageOther": "Other requests",
+  "manageNoRequests": "No requests yet. We will notify you when a passenger asks for a seat.",
+  "manageAccept": "Accept",
+  "manageReject": "Decline",
+  "manageRejectConfirm": "Decline this request?",
+  "manageCancelBooking": "Cancel booking",
+  "manageCancelBookingConfirm": "Cancel this passenger's booking? The passenger will be notified.",
+  "manageCancelTrip": "Cancel trip",
+  "manageCancelTripConfirm": "Cancel the whole trip? All passengers and requests will be cancelled and notified.",
+  "manageCompleteTrip": "Finish the trip",
+  "manageCompleteConfirm": "Mark the trip as completed? Passengers will be able to rate it.",
+  "manageEditTrip": "Edit trip",
+  "manageRequestedAt": "Requested {time}",
+  "@manageRequestedAt": {
+    "placeholders": {
+      "time": {
+        "type": "String"
+      }
+    }
+  },
+  "manageAccepted1": "Request accepted",
+  "manageRejected1": "Request declined",
+  "manageTripCancelled": "Trip cancelled",
+  "manageTripCompleted": "Trip completed",
+  "manageRatePassenger": "Rate passenger",
+  "editTripTitle": "Edit trip",
+  "editTripScheduleLocked": "The date and time can be changed only while the trip has no requests.",
+  "editTripSaved": "Trip updated. Passengers have been notified.",
+  "editTripClearPrice": "Remove price",
+  "bookingTitle": "Booking",
+  "bookingContact": "Contact",
+  "bookingCallDriver": "Call the driver",
+  "bookingCallPassenger": "Call the passenger",
+  "bookingContactHidden": "The phone number is shown after the driver accepts the request.",
+  "bookingCancel": "Cancel booking",
+  "bookingCancelConfirm": "Cancel your booking? The driver will be notified.",
+  "bookingCancelled": "Booking cancelled",
+  "bookingRate": "Rate the trip",
+  "bookingReviewed": "Thank you, you have rated this trip",
+  "bookingYourSegment": "Your part of the route",
+  "bookingRequestedSeats": "Requested seats",
+  "bookingDialerError": "Could not open the phone app",
+  "reviewTitle": "Leave a review",
+  "reviewAboutDriver": "How was your trip with {name}?",
+  "@reviewAboutDriver": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "reviewAboutPassenger": "How was {name} as a passenger?",
+  "@reviewAboutPassenger": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "reviewCommentHint": "A few words about the trip (optional)",
+  "reviewSubmit": "Send review",
+  "reviewThanks": "Thank you for your review!",
+  "reviewChooseRating": "Choose from 1 to 5 stars",
+  "reviewsTitle": "Reviews",
+  "reviewsEmpty": "No reviews yet",
+  "reviewByPassenger": "Passenger",
+  "reviewByDriver": "Driver",
+  "profileTitle": "Profile",
+  "profileEdit": "Edit profile",
+  "profileChangePhoto": "Change photo",
+  "profileRemovePhoto": "Remove photo",
+  "profilePhone": "Phone number",
+  "profileChangePhone": "Change number",
+  "profileVehicles": "My cars",
+  "profileReviews": "Reviews about me",
+  "profileSettings": "Settings",
+  "profileLogout": "Sign out",
+  "profileLogoutConfirm": "Sign out of your account?",
+  "profileMemberSince": "Member since {date}",
+  "@profileMemberSince": {
+    "placeholders": {
+      "date": {
+        "type": "String"
+      }
+    }
+  },
+  "profileTripsAsDriver": "As driver",
+  "profileTripsAsPassenger": "As passenger",
+  "profileRating": "Rating",
+  "profileSaved": "Profile saved",
+  "photoFromGallery": "Choose from gallery",
+  "photoFromCamera": "Take a photo",
+  "changePhoneTitle": "Change phone number",
+  "changePhoneSubtitle": "We will send a code to the new number. Your account and trips stay the same.",
+  "changePhoneNew": "New mobile number",
+  "changePhoneSuccess": "Phone number changed",
+  "settingsTitle": "Settings",
+  "settingsLanguage": "App language",
+  "settingsAbout": "About Ýolugra",
+  "settingsAboutText": "Ýolugra connects drivers and passengers travelling between the cities of Turkmenistan. Payments are arranged directly between travellers.",
+  "languageTk": "Türkmençe",
+  "languageRu": "Русский",
+  "languageEn": "English",
+  "notificationsTitle": "Notifications",
+  "notificationsEmpty": "No notifications yet",
+  "notificationsMarkAll": "Mark all as read",
+  "noteBookingRequested": "{name} asks for seats on {route}",
+  "@noteBookingRequested": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      },
+      "route": {
+        "type": "String"
+      }
+    }
+  },
+  "noteBookingApproved": "Your request for {route} was accepted",
+  "@noteBookingApproved": {
+    "placeholders": {
+      "route": {
+        "type": "String"
+      }
+    }
+  },
+  "noteBookingRejected": "Your request for {route} was declined",
+  "@noteBookingRejected": {
+    "placeholders": {
+      "route": {
+        "type": "String"
+      }
+    }
+  },
+  "noteBookingCancelledByPassenger": "{name} cancelled the booking on {route}",
+  "@noteBookingCancelledByPassenger": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      },
+      "route": {
+        "type": "String"
+      }
+    }
+  },
+  "noteBookingCancelledByDriver": "The driver cancelled your booking on {route}",
+  "@noteBookingCancelledByDriver": {
+    "placeholders": {
+      "route": {
+        "type": "String"
+      }
+    }
+  },
+  "noteBookingExpired": "Your request for {route} expired without an answer",
+  "@noteBookingExpired": {
+    "placeholders": {
+      "route": {
+        "type": "String"
+      }
+    }
+  },
+  "noteTripCancelled": "The trip {route} was cancelled",
+  "@noteTripCancelled": {
+    "placeholders": {
+      "route": {
+        "type": "String"
+      }
+    }
+  },
+  "noteTripUpdated": "The driver updated the trip {route}",
+  "@noteTripUpdated": {
+    "placeholders": {
+      "route": {
+        "type": "String"
+      }
+    }
+  },
+  "noteTripReminder": "The trip {route} starts soon",
+  "@noteTripReminder": {
+    "placeholders": {
+      "route": {
+        "type": "String"
+      }
+    }
+  },
+  "noteTripCompleted": "The trip {route} is completed. Rate your travel companions",
+  "@noteTripCompleted": {
+    "placeholders": {
+      "route": {
+        "type": "String"
+      }
+    }
+  },
+  "noteReviewReceived": "{name} left you a review",
+  "@noteReviewReceived": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "noteSomeone": "A user",
+  "filterAny": "Any",
+  "serverTitle": "Server address",
+  "serverHint": "For example 192.168.1.10:8081",
+  "serverNote": "Test builds only. Enter the computer’s address in the same Wi-Fi network.",
+  "serverCheck": "Check connection",
+  "serverReachable": "The server answers",
+  "serverUnreachable": "No answer from {url}. Check the address, the Wi-Fi network and the computer’s firewall.",
+  "serverInvalid": "Enter an address like 192.168.1.10:8081",
+  "serverReset": "Default",
+  "serverSaved": "Server address saved",
+  "@serverUnreachable": {
+    "placeholders": {
+      "url": {
+        "type": "String"
+      }
+    }
+  }
+}
