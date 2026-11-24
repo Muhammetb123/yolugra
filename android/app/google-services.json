@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "26585190993",
+    "project_id": "bilego-a4f3c",
+    "storage_bucket": "bilego-a4f3c.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:26585190993:android:0ed2e8337c297bcdab5e70",
+        "android_client_info": {
+          "package_name": "com.example.yolugra"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB0XSMF-E8t5wW2t0qMsKHbPGmYt0Uq9Oc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:26585190993:android:f5d99ea0d8324cdaab5e70",
+        "android_client_info": {
+          "package_name": "com.yolugra.yolugra"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB0XSMF-E8t5wW2t0qMsKHbPGmYt0Uq9Oc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

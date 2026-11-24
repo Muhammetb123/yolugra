@@ -91,7 +91,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get authPhoneLabel => 'Mobile number';
 
   @override
-  String get authPhoneHint => '6X XX XX XX';
+  String get authPhoneHint => 'XX XX XX XX';
 
   @override
   String get authSendCode => 'Get code';
@@ -1326,6 +1326,176 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get noteSomeone => 'A user';
+
+  @override
+  String get userDeleted => 'Deleted user';
+
+  @override
+  String get errorTripInProgress =>
+      'A trip you are driving is on the way. Finish it first, then delete the account.';
+
+  @override
+  String get profileBlockedUsers => 'Blocked users';
+
+  @override
+  String get profileDeleteAccount => 'Delete account';
+
+  @override
+  String get deleteAccountTitle => 'Delete account';
+
+  @override
+  String get deleteAccountIntro =>
+      'Your account and the data tied to it are deleted right away. This cannot be undone.';
+
+  @override
+  String get deleteAccountRemovedTitle => 'What is deleted';
+
+  @override
+  String get deleteAccountRemovedProfile =>
+      'Your phone number, name, photo and the text about you';
+
+  @override
+  String get deleteAccountRemovedVehicles => 'Your cars and their photos';
+
+  @override
+  String get deleteAccountRemovedReviews => 'Reviews about you and your rating';
+
+  @override
+  String get deleteAccountRemovedTexts =>
+      'Texts you wrote: trip descriptions, meeting points, messages to drivers and review comments';
+
+  @override
+  String get deleteAccountRemovedInbox =>
+      'Your notifications and your list of blocked users';
+
+  @override
+  String get deleteAccountCancelled =>
+      'Trips you published and requests you sent are cancelled if the trip has not departed yet. Your travel companions are notified.';
+
+  @override
+  String get deleteAccountKeptTitle => 'What stays';
+
+  @override
+  String get deleteAccountKeptHistory =>
+      'Past trips and bookings stay in the history of the people you travelled with. You appear there as “Deleted user”, with no name, photo or phone number';
+
+  @override
+  String get deleteAccountKeptRatings =>
+      'Ratings you gave to others stay in their rating, without your comments';
+
+  @override
+  String get deleteAccountKeptReports => 'Reports you sent about other users';
+
+  @override
+  String get deleteAccountAfter =>
+      'You can register again with the same number, but it will be a new, empty account.';
+
+  @override
+  String get deleteAccountButton => 'Delete my account';
+
+  @override
+  String get deleteAccountConfirm =>
+      'Delete your account for good? This cannot be undone.';
+
+  @override
+  String get deleteAccountDone => 'Your account is deleted';
+
+  @override
+  String get blockUser => 'Block';
+
+  @override
+  String get unblockUser => 'Unblock';
+
+  @override
+  String blockConfirm(String name) {
+    return 'Block $name? You will not see each other\'s trips and cannot send each other requests.';
+  }
+
+  @override
+  String get blockDone => 'User blocked';
+
+  @override
+  String get unblockDone => 'User unblocked';
+
+  @override
+  String get blockedBanner =>
+      'You blocked this user. You do not see each other\'s trips.';
+
+  @override
+  String get blockedUsersEmpty => 'You have not blocked anyone';
+
+  @override
+  String get blockedUsersHint => 'You can block a user from their profile.';
+
+  @override
+  String get reportUser => 'Report';
+
+  @override
+  String get reportTrip => 'Report this trip';
+
+  @override
+  String get reportTitle => 'Report a user';
+
+  @override
+  String reportAbout(String name) {
+    return 'Why are you reporting $name?';
+  }
+
+  @override
+  String get reportReasonSpam => 'Spam or advertising';
+
+  @override
+  String get reportReasonFraud => 'Fraud or asking for money in advance';
+
+  @override
+  String get reportReasonAbuse => 'Insults or threats';
+
+  @override
+  String get reportReasonNoShow => 'Did not show up for the trip';
+
+  @override
+  String get reportReasonUnsafe => 'Dangerous driving or behaviour';
+
+  @override
+  String get reportReasonFakeProfile => 'Fake profile';
+
+  @override
+  String get reportReasonInappropriateContent => 'Inappropriate photo or text';
+
+  @override
+  String get reportReasonOther => 'Something else';
+
+  @override
+  String get reportDetails => 'What happened';
+
+  @override
+  String get reportDetailsHint => 'A few words help us understand faster';
+
+  @override
+  String get reportDetailsRequired => 'Describe what happened';
+
+  @override
+  String get reportSubmit => 'Send report';
+
+  @override
+  String get reportSent => 'Report sent. We review every report.';
+
+  @override
+  String get reportNote =>
+      'The report goes to the Ýolugra team. The user does not get a notification about it.';
+
+  @override
+  String get legalTerms => 'Terms of use';
+
+  @override
+  String get legalPrivacy => 'Privacy policy';
+
+  @override
+  String get authLegalNote =>
+      'By continuing you accept the terms of use and the privacy policy.';
+
+  @override
+  String get linkOpenError => 'Could not open the link';
 
   @override
   String get filterAny => 'Any';

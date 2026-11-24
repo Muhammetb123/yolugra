@@ -4,6 +4,7 @@ import '../../../../app/localization/l10n.dart';
 import '../../../../core/utils/formatters.dart';
 import '../../../../core/widgets/rating.dart';
 import '../../../../core/widgets/user_avatar.dart';
+import '../../../profile/presentation/widgets/user_labels.dart';
 import '../../domain/trip.dart';
 import 'trip_labels.dart';
 
@@ -67,8 +68,8 @@ class TripCard extends StatelessWidget {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Text(trip.driver.fullName, style: theme.textTheme.titleSmall, overflow: TextOverflow.ellipsis),
-                        RatingBadge(average: trip.driver.ratingAvg, count: trip.driver.ratingCount, compact: true),
+                        Text(l.userName(trip.driver), style: theme.textTheme.titleSmall, overflow: TextOverflow.ellipsis),
+                        if (!trip.driver.deleted) RatingBadge(average: trip.driver.ratingAvg, count: trip.driver.ratingCount, compact: true),
                       ],
                     ),
                   ),

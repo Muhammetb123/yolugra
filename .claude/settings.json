@@ -1,0 +1,7 @@
+{
+  "permissions": {
+    "allow": [
+      "Read(//c/Users/user/AppData/Local/Pub/Cache/hosted/pub.dev/firebase_messaging-17.0.1/lib/src/**)"
+    ]
+  }
+}

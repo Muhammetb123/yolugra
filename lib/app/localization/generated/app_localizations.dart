@@ -265,7 +265,7 @@ abstract class AppLocalizations {
   /// No description provided for @authPhoneHint.
   ///
   /// In en, this message translates to:
-  /// **'6X XX XX XX'**
+  /// **'XX XX XX XX'**
   String get authPhoneHint;
 
   /// No description provided for @authSendCode.
@@ -2421,6 +2421,312 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'A user'**
   String get noteSomeone;
+
+  /// No description provided for @userDeleted.
+  ///
+  /// In en, this message translates to:
+  /// **'Deleted user'**
+  String get userDeleted;
+
+  /// No description provided for @errorTripInProgress.
+  ///
+  /// In en, this message translates to:
+  /// **'A trip you are driving is on the way. Finish it first, then delete the account.'**
+  String get errorTripInProgress;
+
+  /// No description provided for @profileBlockedUsers.
+  ///
+  /// In en, this message translates to:
+  /// **'Blocked users'**
+  String get profileBlockedUsers;
+
+  /// No description provided for @profileDeleteAccount.
+  ///
+  /// In en, this message translates to:
+  /// **'Delete account'**
+  String get profileDeleteAccount;
+
+  /// No description provided for @deleteAccountTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Delete account'**
+  String get deleteAccountTitle;
+
+  /// No description provided for @deleteAccountIntro.
+  ///
+  /// In en, this message translates to:
+  /// **'Your account and the data tied to it are deleted right away. This cannot be undone.'**
+  String get deleteAccountIntro;
+
+  /// No description provided for @deleteAccountRemovedTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'What is deleted'**
+  String get deleteAccountRemovedTitle;
+
+  /// No description provided for @deleteAccountRemovedProfile.
+  ///
+  /// In en, this message translates to:
+  /// **'Your phone number, name, photo and the text about you'**
+  String get deleteAccountRemovedProfile;
+
+  /// No description provided for @deleteAccountRemovedVehicles.
+  ///
+  /// In en, this message translates to:
+  /// **'Your cars and their photos'**
+  String get deleteAccountRemovedVehicles;
+
+  /// No description provided for @deleteAccountRemovedReviews.
+  ///
+  /// In en, this message translates to:
+  /// **'Reviews about you and your rating'**
+  String get deleteAccountRemovedReviews;
+
+  /// No description provided for @deleteAccountRemovedTexts.
+  ///
+  /// In en, this message translates to:
+  /// **'Texts you wrote: trip descriptions, meeting points, messages to drivers and review comments'**
+  String get deleteAccountRemovedTexts;
+
+  /// No description provided for @deleteAccountRemovedInbox.
+  ///
+  /// In en, this message translates to:
+  /// **'Your notifications and your list of blocked users'**
+  String get deleteAccountRemovedInbox;
+
+  /// No description provided for @deleteAccountCancelled.
+  ///
+  /// In en, this message translates to:
+  /// **'Trips you published and requests you sent are cancelled if the trip has not departed yet. Your travel companions are notified.'**
+  String get deleteAccountCancelled;
+
+  /// No description provided for @deleteAccountKeptTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'What stays'**
+  String get deleteAccountKeptTitle;
+
+  /// No description provided for @deleteAccountKeptHistory.
+  ///
+  /// In en, this message translates to:
+  /// **'Past trips and bookings stay in the history of the people you travelled with. You appear there as “Deleted user”, with no name, photo or phone number'**
+  String get deleteAccountKeptHistory;
+
+  /// No description provided for @deleteAccountKeptRatings.
+  ///
+  /// In en, this message translates to:
+  /// **'Ratings you gave to others stay in their rating, without your comments'**
+  String get deleteAccountKeptRatings;
+
+  /// No description provided for @deleteAccountKeptReports.
+  ///
+  /// In en, this message translates to:
+  /// **'Reports you sent about other users'**
+  String get deleteAccountKeptReports;
+
+  /// No description provided for @deleteAccountAfter.
+  ///
+  /// In en, this message translates to:
+  /// **'You can register again with the same number, but it will be a new, empty account.'**
+  String get deleteAccountAfter;
+
+  /// No description provided for @deleteAccountButton.
+  ///
+  /// In en, this message translates to:
+  /// **'Delete my account'**
+  String get deleteAccountButton;
+
+  /// No description provided for @deleteAccountConfirm.
+  ///
+  /// In en, this message translates to:
+  /// **'Delete your account for good? This cannot be undone.'**
+  String get deleteAccountConfirm;
+
+  /// No description provided for @deleteAccountDone.
+  ///
+  /// In en, this message translates to:
+  /// **'Your account is deleted'**
+  String get deleteAccountDone;
+
+  /// No description provided for @blockUser.
+  ///
+  /// In en, this message translates to:
+  /// **'Block'**
+  String get blockUser;
+
+  /// No description provided for @unblockUser.
+  ///
+  /// In en, this message translates to:
+  /// **'Unblock'**
+  String get unblockUser;
+
+  /// No description provided for @blockConfirm.
+  ///
+  /// In en, this message translates to:
+  /// **'Block {name}? You will not see each other\'s trips and cannot send each other requests.'**
+  String blockConfirm(String name);
+
+  /// No description provided for @blockDone.
+  ///
+  /// In en, this message translates to:
+  /// **'User blocked'**
+  String get blockDone;
+
+  /// No description provided for @unblockDone.
+  ///
+  /// In en, this message translates to:
+  /// **'User unblocked'**
+  String get unblockDone;
+
+  /// No description provided for @blockedBanner.
+  ///
+  /// In en, this message translates to:
+  /// **'You blocked this user. You do not see each other\'s trips.'**
+  String get blockedBanner;
+
+  /// No description provided for @blockedUsersEmpty.
+  ///
+  /// In en, this message translates to:
+  /// **'You have not blocked anyone'**
+  String get blockedUsersEmpty;
+
+  /// No description provided for @blockedUsersHint.
+  ///
+  /// In en, this message translates to:
+  /// **'You can block a user from their profile.'**
+  String get blockedUsersHint;
+
+  /// No description provided for @reportUser.
+  ///
+  /// In en, this message translates to:
+  /// **'Report'**
+  String get reportUser;
+
+  /// No description provided for @reportTrip.
+  ///
+  /// In en, this message translates to:
+  /// **'Report this trip'**
+  String get reportTrip;
+
+  /// No description provided for @reportTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Report a user'**
+  String get reportTitle;
+
+  /// No description provided for @reportAbout.
+  ///
+  /// In en, this message translates to:
+  /// **'Why are you reporting {name}?'**
+  String reportAbout(String name);
+
+  /// No description provided for @reportReasonSpam.
+  ///
+  /// In en, this message translates to:
+  /// **'Spam or advertising'**
+  String get reportReasonSpam;
+
+  /// No description provided for @reportReasonFraud.
+  ///
+  /// In en, this message translates to:
+  /// **'Fraud or asking for money in advance'**
+  String get reportReasonFraud;
+
+  /// No description provided for @reportReasonAbuse.
+  ///
+  /// In en, this message translates to:
+  /// **'Insults or threats'**
+  String get reportReasonAbuse;
+
+  /// No description provided for @reportReasonNoShow.
+  ///
+  /// In en, this message translates to:
+  /// **'Did not show up for the trip'**
+  String get reportReasonNoShow;
+
+  /// No description provided for @reportReasonUnsafe.
+  ///
+  /// In en, this message translates to:
+  /// **'Dangerous driving or behaviour'**
+  String get reportReasonUnsafe;
+
+  /// No description provided for @reportReasonFakeProfile.
+  ///
+  /// In en, this message translates to:
+  /// **'Fake profile'**
+  String get reportReasonFakeProfile;
+
+  /// No description provided for @reportReasonInappropriateContent.
+  ///
+  /// In en, this message translates to:
+  /// **'Inappropriate photo or text'**
+  String get reportReasonInappropriateContent;
+
+  /// No description provided for @reportReasonOther.
+  ///
+  /// In en, this message translates to:
+  /// **'Something else'**
+  String get reportReasonOther;
+
+  /// No description provided for @reportDetails.
+  ///
+  /// In en, this message translates to:
+  /// **'What happened'**
+  String get reportDetails;
+
+  /// No description provided for @reportDetailsHint.
+  ///
+  /// In en, this message translates to:
+  /// **'A few words help us understand faster'**
+  String get reportDetailsHint;
+
+  /// No description provided for @reportDetailsRequired.
+  ///
+  /// In en, this message translates to:
+  /// **'Describe what happened'**
+  String get reportDetailsRequired;
+
+  /// No description provided for @reportSubmit.
+  ///
+  /// In en, this message translates to:
+  /// **'Send report'**
+  String get reportSubmit;
+
+  /// No description provided for @reportSent.
+  ///
+  /// In en, this message translates to:
+  /// **'Report sent. We review every report.'**
+  String get reportSent;
+
+  /// No description provided for @reportNote.
+  ///
+  /// In en, this message translates to:
+  /// **'The report goes to the Ýolugra team. The user does not get a notification about it.'**
+  String get reportNote;
+
+  /// No description provided for @legalTerms.
+  ///
+  /// In en, this message translates to:
+  /// **'Terms of use'**
+  String get legalTerms;
+
+  /// No description provided for @legalPrivacy.
+  ///
+  /// In en, this message translates to:
+  /// **'Privacy policy'**
+  String get legalPrivacy;
+
+  /// No description provided for @authLegalNote.
+  ///
+  /// In en, this message translates to:
+  /// **'By continuing you accept the terms of use and the privacy policy.'**
+  String get authLegalNote;
+
+  /// No description provided for @linkOpenError.
+  ///
+  /// In en, this message translates to:
+  /// **'Could not open the link'**
+  String get linkOpenError;
 
   /// No description provided for @filterAny.
   ///

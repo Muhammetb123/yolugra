@@ -3,13 +3,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../app/localization/l10n.dart';
-import '../../../../app/router/app_router.dart';
 import '../../../../core/bloc/paged_cubit.dart';
 import '../../../../core/widgets/paged_list_view.dart';
 import '../../../../core/widgets/state_views.dart';
 import '../../../../init/dependency_injection.dart';
 import '../../domain/app_notification.dart';
 import '../bloc/notifications_cubits.dart';
+import '../notification_target.dart';
 import '../widgets/notification_tile.dart';
 
 @RoutePage()
@@ -35,27 +35,9 @@ class _View extends StatelessWidget {
   /// Opens the screen that the notification is about.
   void _open(BuildContext context, AppNotification n) {
     context.read<NotificationsCubit>().markRead(n);
-    final router = context.router;
-    switch (n.type) {
-      case NotificationType.bookingRequested:
-      case NotificationType.bookingCancelledByPassenger:
-        if (n.tripId != null) router.push(TripManageRoute(tripId: n.tripId!));
-      case NotificationType.reviewReceived:
-        router.push(const ProfileRoute());
-      case NotificationType.tripCompleted:
-      case NotificationType.tripReminder:
-        if (n.bookingId != null) {
-          router.push(BookingDetailsRoute(bookingId: n.bookingId!));
-        } else if (n.tripId != null) {
-          router.push(TripManageRoute(tripId: n.tripId!));
-        }
-      default:
-        if (n.bookingId != null) {
-          router.push(BookingDetailsRoute(bookingId: n.bookingId!));
-        } else if (n.tripId != null) {
-          router.push(TripDetailsRoute(tripId: n.tripId!));
-        }
-    }
+    // A row without a target stays on this screen instead of opening it again.
+    if (n.tripId == null && n.bookingId == null && n.type != NotificationType.reviewReceived) return;
+    openNotificationTarget(context.router, n.type, tripId: n.tripId, bookingId: n.bookingId);
   }
 
   @override

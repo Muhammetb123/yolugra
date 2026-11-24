@@ -69,7 +69,9 @@ class _Body extends StatelessWidget {
     final me = context.select((AuthBloc b) => b.profile?.id);
     final iAmPassenger = booking.passenger.id == me;
     final canCancel = booking.status.isActive && trip != null && (booking.status == BookingStatus.pending || trip.departsAt.isAfter(DateTime.now()));
-    final canReview = booking.status == BookingStatus.completed && !booking.reviewed;
+    // A deleted account cannot be reviewed; the backend refuses it too.
+    final otherDeleted = iAmPassenger ? (trip?.driver.deleted ?? false) : booking.passenger.deleted;
+    final canReview = booking.status == BookingStatus.completed && !booking.reviewed && !otherDeleted;
     return ListView(
       padding: const EdgeInsets.all(16),
       children: [
@@ -97,7 +99,7 @@ class _Body extends StatelessWidget {
         ),
         if (trip != null) ...[
           const SizedBox(height: 12),
-          DriverSection(driver: trip.driver, onTap: () => context.router.push(PublicProfileRoute(userId: trip.driver.id))),
+          DriverSection(driver: trip.driver, onTap: () => context.router.push(PublicProfileRoute(userId: trip.driver.id, tripId: trip.id))),
           if (trip.vehicle != null) ...[
             const SizedBox(height: 12),
             VehicleSection(vehicle: trip.vehicle!, plateVisible: booking.status.contactVisible),

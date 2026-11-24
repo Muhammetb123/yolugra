@@ -19,6 +19,7 @@ String errorText(AppLocalizations l, Object error) {
     'TRIP_NOT_ACTIVE' => l.errorTripNotActive,
     'TRIP_ALREADY_STARTED' => l.errorTripStarted,
     'TRIP_NOT_STARTED' => l.errorTripNotStarted,
+    'TRIP_IN_PROGRESS' => l.errorTripInProgress,
     'BOOKING_NOT_PENDING' => l.errorBookingNotPending,
     'INVALID_SEGMENT' => l.errorInvalidSegment,
     'BOOKING_EXISTS' => l.errorBookingExists,

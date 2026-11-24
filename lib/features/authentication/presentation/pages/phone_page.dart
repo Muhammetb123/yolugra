@@ -5,10 +5,12 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../../app/localization/l10n.dart';
 import '../../../../app/router/app_router.dart';
 import '../../../../core/bloc/paged_cubit.dart';
+import '../../../../core/config/app_config.dart';
 import '../../../../core/config/server_address.dart';
 import '../../../../core/errors/app_exception.dart';
 import '../../../../core/errors/error_text.dart';
 import '../../../../core/widgets/app_buttons.dart';
+import '../../../../core/widgets/legal_links.dart';
 import '../../../../init/dependency_injection.dart';
 import '../../../settings/presentation/widgets/language_switcher.dart';
 import '../../../settings/presentation/widgets/server_address_dialog.dart';
@@ -92,6 +94,11 @@ class _PhoneViewState extends State<_PhoneView> {
                     Expanded(child: Text(l.authSmsNote, style: theme.textTheme.bodySmall?.copyWith(color: theme.colorScheme.onSurfaceVariant))),
                   ],
                 ),
+                if (AppConfig.websiteUrl.isNotEmpty) ...[
+                  const SizedBox(height: 20),
+                  Text(l.authLegalNote, style: theme.textTheme.bodySmall?.copyWith(color: theme.colorScheme.onSurfaceVariant)),
+                  const LegalLinks(compact: true),
+                ],
               ],
             ),
           );

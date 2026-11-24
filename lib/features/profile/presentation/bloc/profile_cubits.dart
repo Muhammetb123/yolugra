@@ -130,4 +130,33 @@ class PublicProfileCubit extends Cubit<PublicProfileState> {
   }
 }
 
+class DeleteAccountState extends Equatable {
+  const DeleteAccountState({this.status = LoadStatus.initial, this.error});
+
+  final LoadStatus status;
+  final Object? error;
+
+  @override
+  List<Object?> get props => [status, error];
+}
+
+/// Deletes the signed-in account. On success the local session is gone too, and the
+/// page tells the AuthBloc so the app returns to sign-in.
+class DeleteAccountCubit extends Cubit<DeleteAccountState> {
+  DeleteAccountCubit(this._repo) : super(const DeleteAccountState());
+
+  final AuthRepository _repo;
+
+  Future<void> submit() async {
+    if (state.status == LoadStatus.loading || state.status == LoadStatus.success) return;
+    emit(const DeleteAccountState(status: LoadStatus.loading));
+    try {
+      await _repo.deleteAccount();
+      if (!isClosed) emit(const DeleteAccountState(status: LoadStatus.success));
+    } catch (e) {
+      if (!isClosed) emit(DeleteAccountState(status: LoadStatus.failure, error: e));
+    }
+  }
+}
+
 PagedCubit<Review> reviewsCubit(ReviewsRepository repo, String userId) => PagedCubit((page) => repo.forUser(userId, page: page));

@@ -10,6 +10,7 @@ class UserSummary extends Equatable {
     this.ratingAvg = 0,
     this.ratingCount = 0,
     this.completedTrips = 0,
+    this.deleted = false,
   });
 
   final String id;
@@ -20,10 +21,14 @@ class UserSummary extends Equatable {
   final int ratingCount;
   final int completedTrips;
 
+  /// The account was deleted: no name, photo or rating is left and it has no profile
+  /// page. Screens show a placeholder instead of the name.
+  final bool deleted;
+
   String get fullName => '$firstName $lastName'.trim();
 
   @override
-  List<Object?> get props => [id, firstName, lastName, photoUrl, ratingAvg, ratingCount, completedTrips];
+  List<Object?> get props => [id, firstName, lastName, photoUrl, ratingAvg, ratingCount, completedTrips, deleted];
 }
 
 /// A user profile. [phone] and [locale] are present only for the signed-in user.

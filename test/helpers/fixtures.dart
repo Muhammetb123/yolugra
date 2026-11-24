@@ -12,12 +12,12 @@ const mary = Location(
 const driver = UserSummary(id: 'u-driver', firstName: 'Merdan', lastName: 'Ataýew', ratingAvg: 4.8, ratingCount: 12, completedTrips: 30);
 
 /// Ashgabat -> Tejen -> Mary with four seats; [free] is the free seats per segment.
-Trip sampleTrip({List<int> free = const [4, 4], TripViewer? viewer, String plate = ''}) {
+Trip sampleTrip({List<int> free = const [4, 4], TripViewer? viewer, String plate = '', UserSummary by = driver}) {
   final dep = DateTime.now().add(const Duration(days: 2));
   return Trip(
     id: 't-1',
     status: TripStatus.active,
-    driver: driver,
+    driver: by,
     vehicle: Vehicle(brand: 'Toyota', model: 'Camry', color: 'Ak', plate: plate, passengerSeats: 4),
     stops: [
       TripStop(order: 0, location: ashgabat, plannedAt: dep, type: StopType.pickup, meetingPoint: 'Teke bazar'),

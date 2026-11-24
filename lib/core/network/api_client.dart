@@ -48,7 +48,7 @@ class ApiClient {
 
   Future<Map<String, dynamic>> put(String path, {Object? body}) => _send(() => _dio.put<dynamic>(path, data: body));
 
-  Future<Map<String, dynamic>> delete(String path) => _send(() => _dio.delete<dynamic>(path));
+  Future<Map<String, dynamic>> delete(String path, {Object? body}) => _send(() => _dio.delete<dynamic>(path, data: body));
 
   Future<Map<String, dynamic>> upload(String path, String filePath, {String field = 'photo'}) async {
     final form = FormData.fromMap({field: await MultipartFile.fromFile(filePath)});

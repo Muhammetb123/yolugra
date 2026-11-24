@@ -57,4 +57,11 @@ class AuthRepositoryImpl implements AuthRepository {
       await _session.clear();
     }
   }
+
+  @override
+  Future<void> deleteAccount() async {
+    // The backend drops every session of the account; only the local copy is left.
+    await _api.delete('/v1/me');
+    await _session.clear();
+  }
 }

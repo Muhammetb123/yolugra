@@ -21,7 +21,7 @@ adb reverse tcp:8081 tcp:8081
 # app
 flutter pub get
 dart run build_runner build --delete-conflicting-outputs
-flutter run                      # API_BASE_URL defaults to http://127.0.0.1:8081
+flutter run                      # API_BASE_URL defaults to https://api.yolugra.tech
 ```
 
 ## Documentation

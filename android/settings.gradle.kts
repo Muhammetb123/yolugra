@@ -12,6 +12,8 @@ pluginManagement {
 
     repositories {
         google()
+        // Google's mirror of Maven Central: repo.maven.apache.org is blocked by some ISPs.
+        maven { url = uri("https://maven-central.storage-download.googleapis.com/maven2/") }
         mavenCentral()
         gradlePluginPortal()
     }
@@ -20,6 +22,9 @@ pluginManagement {
 plugins {
     id("dev.flutter.flutter-plugin-loader") version "1.0.0"
     id("com.android.application") version "8.9.1" apply false
+    // START: FlutterFire Configuration
+    id("com.google.gms.google-services") version("4.4.4") apply false
+    // END: FlutterFire Configuration
     id("org.jetbrains.kotlin.android") version "2.1.0" apply false
 }
 

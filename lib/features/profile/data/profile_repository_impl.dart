@@ -11,6 +11,7 @@ UserSummary userSummaryFromJson(Map<String, dynamic> j) => UserSummary(
       ratingAvg: parseDouble(j['rating_avg']) ?? 0,
       ratingCount: j['rating_count'] as int? ?? 0,
       completedTrips: j['completed_trips'] as int? ?? 0,
+      deleted: j['deleted'] as bool? ?? false,
     );
 
 Profile profileFromJson(Map<String, dynamic> j) => Profile(

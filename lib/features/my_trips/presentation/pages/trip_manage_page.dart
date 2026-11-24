@@ -120,7 +120,8 @@ class _Body extends StatelessWidget {
             booking: b,
             trip: trip,
             busy: state.busyId == b.id,
-            onOpenPassenger: () => context.router.push(PublicProfileRoute(userId: b.passenger.id)),
+            // A deleted account has no profile page.
+            onOpenPassenger: b.passenger.deleted ? null : () => context.router.push(PublicProfileRoute(userId: b.passenger.id, tripId: trip.id)),
             onAccept: decide ? () => cubit.approve(b.id) : null,
             onReject: decide
                 ? () async {
@@ -168,7 +169,7 @@ class _Body extends StatelessWidget {
         if (state.accepted.isNotEmpty) ...[
           _Heading(l.manageAccepted),
           for (final b in state.accepted)
-            tile(b, cancel: upcoming && b.status == BookingStatus.approved, rate: b.status == BookingStatus.completed && !b.reviewed),
+            tile(b, cancel: upcoming && b.status == BookingStatus.approved, rate: b.status == BookingStatus.completed && !b.reviewed && !b.passenger.deleted),
         ],
         if (state.pending.isEmpty && state.accepted.isEmpty)
           Padding(padding: const EdgeInsets.symmetric(vertical: 24), child: EmptyState(icon: Icons.inbox_outlined, title: l.manageNoRequests)),

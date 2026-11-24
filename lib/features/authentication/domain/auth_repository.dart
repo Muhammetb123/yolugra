@@ -15,6 +15,11 @@ abstract interface class AuthRepository {
 
   Future<void> logout();
 
+  /// Deletes the signed-in account and its personal data on the backend, then forgets
+  /// the session on this device. It cannot be undone. Fails with TRIP_IN_PROGRESS while
+  /// a trip the user drives is on the way.
+  Future<void> deleteAccount();
+
   /// Fires when the stored session can no longer be refreshed.
   Stream<void> get sessionExpired;
 }

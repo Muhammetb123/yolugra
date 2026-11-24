@@ -18,6 +18,8 @@ import 'package:yolugra/features/bookings/data/bookings_repository_impl.dart';
 import 'package:yolugra/features/bookings/domain/booking.dart';
 import 'package:yolugra/features/locations/data/locations_repository_impl.dart';
 import 'package:yolugra/features/locations/domain/location.dart';
+import 'package:yolugra/features/moderation/data/moderation_repository_impl.dart';
+import 'package:yolugra/features/moderation/domain/moderation.dart';
 import 'package:yolugra/features/notifications/data/notifications_repository_impl.dart';
 import 'package:yolugra/features/notifications/domain/app_notification.dart';
 import 'package:yolugra/features/profile/data/profile_repository_impl.dart';
@@ -72,6 +74,7 @@ class Client {
   late final reviews = ReviewsRepositoryImpl(api);
   late final notifications = NotificationsRepositoryImpl(api);
   late final locations = LocationsRepositoryImpl(api);
+  late final moderation = ModerationRepositoryImpl(api);
 
   Future<void> signIn(String phone, String first, String last) async {
     final code = await auth.requestCode(phone);
@@ -197,5 +200,63 @@ void main() {
     expect(me.phone, '+99361000001');
     final public = await passenger.profiles.user(me.id);
     expect(public.phone, isNull, reason: 'public profiles never carry a phone');
+  }, skip: run ? false : 'Set --dart-define=RUN_CONTRACT=true and API_BASE_URL to a DEV_MODE backend.', timeout: const Timeout(Duration(minutes: 2)));
+
+  test('a block hides trips both ways, a report is accepted, a deleted driver becomes a placeholder', () async {
+    // The driver's account is deleted at the end, so each run registers the number anew.
+    final driver = Client();
+    final passenger = Client();
+    await driver.signIn('+99361000004', 'Kerim', 'Annaýew');
+    await passenger.signIn('+99361000003', 'Batyr', 'Nazarow');
+    final driverId = (await driver.profiles.me()).id;
+
+    final locs = await driver.locations.all();
+    Location byEn(String en) => locs.firstWhere((l) => l.nameEn == en);
+    final car = await driver.vehicles.create(const Vehicle(brand: 'Kia', model: 'Rio', color: 'Gök', plate: 'ag 4321', passengerSeats: 3));
+    final departs = DateTime.now().add(Duration(days: 40, minutes: DateTime.now().millisecond)).copyWith(second: 0, millisecond: 0, microsecond: 0);
+    final trip = await driver.trips.publish(TripDraft(
+      stops: [StopDraft(location: byEn('Ashgabat'), type: StopType.pickup), StopDraft(location: byEn('Mary'), type: StopType.dropoff)],
+      departsAt: departs,
+      duration: const Duration(hours: 5),
+      vehicleId: car.id!,
+      seats: 3,
+    ));
+    final query = SearchQuery(from: byEn('Ashgabat'), to: byEn('Mary'), date: departs);
+    expect((await passenger.trips.search(query)).items.any((t) => t.id == trip.id), isTrue);
+
+    // Blocking is idempotent, hides the trip and refuses a booking.
+    await passenger.moderation.block(driverId);
+    await passenger.moderation.block(driverId);
+    expect((await passenger.moderation.blocked()).map((u) => u.id), contains(driverId));
+    expect((await passenger.trips.search(query)).items.any((t) => t.id == trip.id), isFalse);
+    await expectLater(
+      passenger.bookings.request(BookingRequest(tripId: trip.id, pickupOrder: 0, dropoffOrder: 1, seats: 1)),
+      throwsA(isA<AppException>().having((e) => e.code, 'code', 'USER_UNAVAILABLE')),
+    );
+    await passenger.moderation.unblock(driverId);
+    expect((await passenger.moderation.blocked()).map((u) => u.id), isNot(contains(driverId)));
+
+    // "Something else" needs a description; a reason with the trip is enough.
+    await expectLater(
+      passenger.moderation.report(userId: driverId, reason: ReportReason.other),
+      throwsA(isA<AppException>().having((e) => e.code, 'code', 'VALIDATION_ERROR')),
+    );
+    await passenger.moderation.report(userId: driverId, reason: ReportReason.noShow, tripId: trip.id, details: 'Contract test');
+    await passenger.moderation.report(userId: driverId, reason: ReportReason.inappropriateContent);
+
+    final booking = await passenger.bookings.request(BookingRequest(tripId: trip.id, pickupOrder: 0, dropoffOrder: 1, seats: 1));
+    await driver.bookings.approve(booking.id);
+
+    // Deleting the account cancels the trip and leaves a nameless placeholder behind.
+    await driver.auth.deleteAccount();
+    expect(await driver.session.readRefreshToken(), isNull);
+    await expectLater(driver.profiles.me(), throwsA(isA<AppException>().having((e) => e.code, 'code', 'UNAUTHORIZED')));
+
+    final after = await passenger.bookings.booking(booking.id);
+    expect(after.status, BookingStatus.cancelledByDriver);
+    expect(after.contactPhone, isNull);
+    expect(after.trip!.driver.deleted, isTrue);
+    expect(after.trip!.driver.fullName, isEmpty);
+    await expectLater(passenger.profiles.user(driverId), throwsA(isA<AppException>().having((e) => e.code, 'code', 'NOT_FOUND')));
   }, skip: run ? false : 'Set --dart-define=RUN_CONTRACT=true and API_BASE_URL to a DEV_MODE backend.', timeout: const Timeout(Duration(minutes: 2)));
 }

@@ -2,12 +2,14 @@ import 'package:flutter/material.dart';
 
 import '../../../../app/localization/l10n.dart';
 import '../../../../core/utils/formatters.dart';
+import '../../../profile/presentation/widgets/user_labels.dart';
 import '../../domain/app_notification.dart';
 
 /// The localized sentence for a notification, built on the device from its type.
 String notificationText(AppLocalizations l, String lang, AppNotification n) {
   final route = n.from != null && n.to != null ? '${n.from!.name(lang)} → ${n.to!.name(lang)}' : '';
-  final name = n.actor?.fullName.isNotEmpty ?? false ? n.actor!.fullName : l.noteSomeone;
+  final actor = n.actor;
+  final name = actor == null || (!actor.deleted && actor.fullName.isEmpty) ? l.noteSomeone : l.userName(actor);
   return switch (n.type) {
     NotificationType.bookingRequested => l.noteBookingRequested(name, route),
     NotificationType.bookingApproved => l.noteBookingApproved(route),

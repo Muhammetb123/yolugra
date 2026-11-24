@@ -11,6 +11,27 @@ All rules are enforced by the backend; the app mirrors them for a better experie
 - Changing the phone number requires a code sent to the new number. A number used by another
   account cannot be taken.
 
+## Account deletion
+
+- Profile → Delete account explains what is removed and what stays, asks once more, and calls
+  `DELETE /v1/me`. Deletion is immediate and cannot be undone; the app returns to sign-in.
+- Trips the user published and requests the user sent are cancelled if the trip has not departed.
+  A driver whose trip is on the way must finish it first (`TRIP_IN_PROGRESS`).
+- Other people keep their history: the deleted account appears there as "Deleted user" with no
+  name, photo, rating or profile page, and it cannot be reviewed.
+- The same number can register again as a new, empty account.
+
+## Blocks and reports
+
+- From another user's profile: **Block** (after a confirmation) or **Report**. A trip that is not
+  one's own can be reported from its screen; the report then names the driver and the trip.
+- A block works both ways: neither user sees the other's trips in search, and a booking between
+  them is refused (`USER_UNAVAILABLE`). Existing bookings stay and can be cancelled as usual.
+  Profile → Blocked users lists the blocks and removes them.
+- A report has one reason (spam, fraud, abuse, no-show, unsafe, fake profile, inappropriate
+  content, other) and optional text up to 1000 characters, required for "other". It goes to the
+  admin queue; the reported user is not notified.
+
 ## Vehicles
 
 - A user can own several vehicles. Make, model, colour and plate are required; year, body type,

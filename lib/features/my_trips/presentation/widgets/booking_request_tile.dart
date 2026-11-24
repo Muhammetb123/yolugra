@@ -6,6 +6,7 @@ import '../../../../core/widgets/rating.dart';
 import '../../../../core/widgets/user_avatar.dart';
 import '../../../bookings/domain/booking.dart';
 import '../../../bookings/presentation/widgets/call_button.dart';
+import '../../../profile/presentation/widgets/user_labels.dart';
 import '../../../trips/domain/trip.dart';
 import '../../../trips/presentation/widgets/trip_labels.dart';
 
@@ -55,8 +56,8 @@ class BookingRequestTile extends StatelessWidget {
                 const SizedBox(width: 12),
                 Expanded(
                   child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-                    Text(p.fullName, style: theme.textTheme.titleMedium),
-                    RatingBadge(average: p.ratingAvg, count: p.ratingCount, compact: true),
+                    Text(l.userName(p), style: theme.textTheme.titleMedium),
+                    if (!p.deleted) RatingBadge(average: p.ratingAvg, count: p.ratingCount, compact: true),
                   ]),
                 ),
                 BookingStatusChip(booking.status),

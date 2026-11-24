@@ -3,23 +3,16 @@ import 'package:flutter/services.dart';
 
 import '../../../../app/localization/l10n.dart';
 
-/// The app mark: a stylised road in a rounded square.
+/// The app mark: the launcher icon in a rounded square.
 class AppLogo extends StatelessWidget {
   const AppLogo({super.key, this.size = 72});
   final double size;
 
   @override
   Widget build(BuildContext context) {
-    final scheme = Theme.of(context).colorScheme;
-    return Container(
-      width: size,
-      height: size,
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(size * 0.3),
-        gradient: LinearGradient(colors: [scheme.primary, Color.lerp(scheme.primary, scheme.secondary, 0.35)!],
-            begin: Alignment.topLeft, end: Alignment.bottomRight),
-      ),
-      child: Icon(Icons.alt_route_rounded, color: scheme.onPrimary, size: size * 0.55),
+    return ClipRRect(
+      borderRadius: BorderRadius.circular(size * 0.3),
+      child: Image.asset('assets/images/app_logo.png', width: size, height: size, fit: BoxFit.cover),
     );
   }
 }

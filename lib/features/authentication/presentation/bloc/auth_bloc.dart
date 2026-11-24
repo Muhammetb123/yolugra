@@ -36,6 +36,11 @@ final class AuthLogoutRequested extends AuthEvent {
   const AuthLogoutRequested();
 }
 
+/// The account was deleted on the backend and the local session is already cleared.
+final class AuthAccountDeleted extends AuthEvent {
+  const AuthAccountDeleted();
+}
+
 final class _AuthSessionExpired extends AuthEvent {
   const _AuthSessionExpired();
 }
@@ -76,13 +81,18 @@ final class AuthRestoreFailed extends AuthState {
 
 /// The app-wide session state. Screens read the signed-in profile from here.
 class AuthBloc extends Bloc<AuthEvent, AuthState> {
-  AuthBloc(this._repo) : super(const AuthUnknown()) {
+  /// [beforeLogout] runs while the session is still valid, for clean-up calls that need it.
+  AuthBloc(this._repo, {Future<void> Function()? beforeLogout})
+      : _beforeLogout = beforeLogout,
+        super(const AuthUnknown()) {
     on<AuthStarted>(_onStarted);
     on<AuthSignedIn>((e, emit) => emit(AuthAuthenticated(e.profile)));
     on<AuthProfileChanged>((e, emit) {
       if (state is AuthAuthenticated) emit(AuthAuthenticated(e.profile));
     });
     on<AuthLogoutRequested>(_onLogout);
+    // No sign-out call: the backend has nothing left to revoke.
+    on<AuthAccountDeleted>((_, emit) => emit(const AuthUnauthenticated()));
     on<_AuthSessionExpired>((_, emit) {
       if (state is AuthAuthenticated) emit(const AuthUnauthenticated(expired: true));
     });
@@ -90,6 +100,7 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
   }
 
   final AuthRepository _repo;
+  final Future<void> Function()? _beforeLogout;
   late final StreamSubscription<void> _expired;
 
   Profile? get profile => switch (state) {
@@ -108,6 +119,11 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
   }
 
   Future<void> _onLogout(AuthLogoutRequested e, Emitter<AuthState> emit) async {
+    try {
+      await _beforeLogout?.call();
+    } catch (_) {
+      // Clean-up is best effort; signing out must always work.
+    }
     await _repo.logout();
     emit(const AuthUnauthenticated());
   }

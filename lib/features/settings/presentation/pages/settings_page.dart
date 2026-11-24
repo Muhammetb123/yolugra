@@ -4,6 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../app/localization/l10n.dart';
 import '../../../../core/config/server_address.dart';
+import '../../../../core/widgets/legal_links.dart';
 import '../../../../core/widgets/section_card.dart';
 import '../../../../init/dependency_injection.dart';
 import '../../../authentication/presentation/bloc/auth_bloc.dart';
@@ -69,7 +70,12 @@ class SettingsPage extends StatelessWidget {
           const SizedBox(height: 12),
           SectionCard(
             title: l.settingsAbout,
-            child: Text(l.settingsAboutText),
+            padding: const EdgeInsets.fromLTRB(16, 16, 16, 8),
+            child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+              Text(l.settingsAboutText),
+              const SizedBox(height: 8),
+              const LegalLinks(),
+            ]),
           ),
         ],
       ),

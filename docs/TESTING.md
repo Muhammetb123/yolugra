@@ -31,8 +31,9 @@ flutter test test/integration --dart-define=RUN_CONTRACT=true --dart-define=API_
 | --- | --- |
 | `test/unit` | Phone normalization, enum wire names, segment seats, trip/booking JSON from the backend, draft and search serialization, error envelope mapping, error texts in all three languages. |
 | `test/bloc` | AuthBloc (restore, profile gate, session expiry), phone/OTP cubits, search (results, empty, failure), booking form (segment and seat limits, seat conflict), publication (route validation, stop reordering, vehicle seat cap, overlap error), trip management (grouping, conflict reload). |
-| `test/widget` | Trip card in tk/ru/en, Turkmen date symbols and date picker, plate privacy, request tile without/with phone, route timeline, amenities. |
-| `test/integration` | Contract test: the real ApiClient, repositories and mappers against a running backend — the full driver/passenger flow including overlap, segment conflict, privacy, notifications, cancellation, editing. |
+| `test/bloc/moderation_test.dart` | Block switch and blocked list, report form rules and payload, account deletion (TRIP_IN_PROGRESS, retry, sign-out without a logout call), the `deleted` flag. |
+| `test/widget` | Trip card in tk/ru/en, Turkmen date symbols and date picker, plate privacy, request tile without/with phone, route timeline, amenities; the "Deleted user" placeholder in three languages, the report form, the blocked users list, legal links with and without a site address. |
+| `test/integration` | Contract test: the real ApiClient, repositories and mappers against a running backend — the full driver/passenger flow including overlap, segment conflict, privacy, notifications, cancellation, editing; then block (hidden trip, refused booking), report, and account deletion seen from the other side. |
 
 The contract test needs a backend with `DEV_MODE=true`, `OTP_TEST_PHONES=+99361000001,+99361000002,+99361000003,+99361000004`
 and **its own database with no registered SMS gateway**, so that no SMS is ever sent:

@@ -18,7 +18,10 @@ import '../features/bookings/domain/booking.dart';
 import '../features/locations/data/locations_repository_impl.dart';
 import '../features/locations/domain/location.dart';
 import '../features/locations/presentation/bloc/locations_cubit.dart';
+import '../features/moderation/data/moderation_repository_impl.dart';
+import '../features/moderation/domain/moderation.dart';
 import '../features/notifications/data/notifications_repository_impl.dart';
+import '../features/notifications/data/push_service.dart';
 import '../features/notifications/domain/app_notification.dart';
 import '../features/notifications/presentation/bloc/notifications_cubits.dart';
 import '../features/profile/data/profile_repository_impl.dart';
@@ -38,7 +41,7 @@ final sl = GetIt.instance;
 /// Registers the object graph. Repositories are bound to their domain interfaces, so
 /// tests replace them without touching presentation code. Screen-level cubits are
 /// created by their pages from these repositories.
-Future<void> configureDependencies() async {
+Future<void> configureDependencies({bool pushAvailable = false}) async {
   final prefs = await SharedPreferences.getInstance();
 
   sl
@@ -56,7 +59,10 @@ Future<void> configureDependencies() async {
     ..registerLazySingleton<BookingsRepository>(() => BookingsRepositoryImpl(sl()))
     ..registerLazySingleton<ReviewsRepository>(() => ReviewsRepositoryImpl(sl()))
     ..registerLazySingleton<NotificationsRepository>(() => NotificationsRepositoryImpl(sl()))
-    ..registerSingleton<AuthBloc>(AuthBloc(sl()))
+    ..registerLazySingleton<ModerationRepository>(() => ModerationRepositoryImpl(sl()))
+    ..registerSingleton<PushService>(PushService(sl(), available: pushAvailable))
+    // The device leaves push delivery while the session can still authorize that call.
+    ..registerSingleton<AuthBloc>(AuthBloc(sl(), beforeLogout: () => sl<PushService>().disable()))
     ..registerSingleton<LocationsCubit>(LocationsCubit(sl()))
     ..registerSingleton<UnreadCubit>(UnreadCubit(sl(), interval: AppConfig.notificationPollInterval))
     ..registerSingleton<AppRouter>(AppRouter(authGuard: AuthGuard(sl())));

@@ -11,8 +11,11 @@ import '../../features/home/presentation/pages/main_shell_page.dart';
 import '../../features/my_trips/presentation/pages/edit_trip_page.dart';
 import '../../features/my_trips/presentation/pages/my_trips_page.dart';
 import '../../features/my_trips/presentation/pages/trip_manage_page.dart';
+import '../../features/moderation/presentation/pages/blocked_users_page.dart';
+import '../../features/moderation/presentation/pages/report_user_page.dart';
 import '../../features/notifications/presentation/pages/notifications_page.dart';
 import '../../features/profile/presentation/pages/change_phone_page.dart';
+import '../../features/profile/presentation/pages/delete_account_page.dart';
 import '../../features/profile/presentation/pages/edit_profile_page.dart';
 import '../../features/profile/presentation/pages/profile_page.dart';
 import '../../features/profile/presentation/pages/public_profile_page.dart';
@@ -69,7 +72,10 @@ class AppRouter extends RootStackRouter {
         AutoRoute(page: VehicleFormRoute.page, path: '/vehicles/edit', guards: [authGuard]),
         AutoRoute(page: EditProfileRoute.page, path: '/profile/edit', guards: [authGuard]),
         AutoRoute(page: ChangePhoneRoute.page, path: '/profile/phone', guards: [authGuard]),
+        AutoRoute(page: DeleteAccountRoute.page, path: '/profile/delete', guards: [authGuard]),
+        AutoRoute(page: BlockedUsersRoute.page, path: '/profile/blocked', guards: [authGuard]),
         AutoRoute(page: PublicProfileRoute.page, path: '/users/:userId', guards: [authGuard]),
+        AutoRoute(page: ReportUserRoute.page, path: '/users/:userId/report', guards: [authGuard]),
         AutoRoute(page: NotificationsRoute.page, path: '/notifications', guards: [authGuard]),
         AutoRoute(page: SettingsRoute.page, path: '/settings', guards: [authGuard]),
         RedirectRoute(path: '*', redirectTo: '/'),

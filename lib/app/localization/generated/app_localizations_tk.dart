@@ -91,7 +91,7 @@ class AppLocalizationsTk extends AppLocalizations {
   String get authPhoneLabel => 'Mobil belgi';
 
   @override
-  String get authPhoneHint => '6X XX XX XX';
+  String get authPhoneHint => 'XX XX XX XX';
 
   @override
   String get authSendCode => 'Kod al';
@@ -1296,6 +1296,179 @@ class AppLocalizationsTk extends AppLocalizations {
 
   @override
   String get noteSomeone => 'Ulanyjy';
+
+  @override
+  String get userDeleted => 'Pozulan ulanyjy';
+
+  @override
+  String get errorTripInProgress =>
+      'Sürüji bolan syýahatyňyz häzir ýolda. Ilki ony tamamlaň, soň hasaby pozuň.';
+
+  @override
+  String get profileBlockedUsers => 'Bloklanan ulanyjylar';
+
+  @override
+  String get profileDeleteAccount => 'Hasaby pozmak';
+
+  @override
+  String get deleteAccountTitle => 'Hasaby pozmak';
+
+  @override
+  String get deleteAccountIntro =>
+      'Hasabyňyz we onuň bilen bagly maglumatlar şol bada pozulýar. Muny yzyna gaýtaryp bolmaýar.';
+
+  @override
+  String get deleteAccountRemovedTitle => 'Näme pozulýar';
+
+  @override
+  String get deleteAccountRemovedProfile =>
+      'Telefon belgiňiz, adyňyz, suratyňyz we özüňiz barada ýazgyňyz';
+
+  @override
+  String get deleteAccountRemovedVehicles => 'Maşynlaryňyz we olaryň suratlary';
+
+  @override
+  String get deleteAccountRemovedReviews => 'Siz barada synlar we bahaňyz';
+
+  @override
+  String get deleteAccountRemovedTexts =>
+      'Ýazan tekstleriňiz: syýahatlaryň beýany, duşuşyk ýerleri, sürüjilere ýazan hatlaryňyz we synlaryňyzyň teksti';
+
+  @override
+  String get deleteAccountRemovedInbox =>
+      'Habarlaryňyz we bloklan ulanyjylaryňyzyň sanawy';
+
+  @override
+  String get deleteAccountCancelled =>
+      'Goşan syýahatlaryňyz we iberen haýyşlaryňyz, syýahat entek ugramadyk bolsa, ýatyrylýar. Ýol ýoldaşlaryňyza habar berilýär.';
+
+  @override
+  String get deleteAccountKeptTitle => 'Näme galýar';
+
+  @override
+  String get deleteAccountKeptHistory =>
+      'Geçen syýahatlar we haýyşlar ýol ýoldaşlaryňyzyň taryhynda galýar. Olarda siz adyňyz, suratyňyz we telefon belgiňiz bolmazdan «Pozulan ulanyjy» hökmünde görkezilýärsiňiz';
+
+  @override
+  String get deleteAccountKeptRatings =>
+      'Beýlekilere goýan bahalaryňyz olaryň bahasynda galýar, ýöne synlaryňyzyň teksti bolmaýar';
+
+  @override
+  String get deleteAccountKeptReports =>
+      'Beýleki ulanyjylar barada iberen şikaýatlaryňyz';
+
+  @override
+  String get deleteAccountAfter =>
+      'Şol bir belgi bilen täzeden hasap açyp bilersiňiz, ýöne ol täze, boş hasap bolar.';
+
+  @override
+  String get deleteAccountButton => 'Hasabymy poz';
+
+  @override
+  String get deleteAccountConfirm =>
+      'Hasabyňyzy hemişelik pozmalymy? Muny yzyna gaýtaryp bolmaýar.';
+
+  @override
+  String get deleteAccountDone => 'Hasabyňyz pozuldy';
+
+  @override
+  String get blockUser => 'Blokla';
+
+  @override
+  String get unblockUser => 'Blokdan aýyr';
+
+  @override
+  String blockConfirm(String name) {
+    return '$name atly ulanyjyny bloklamalymy? Biri-biriňiziň syýahatlaryňyzy görmersiňiz we biri-biriňize haýyş iberip bilmersiňiz.';
+  }
+
+  @override
+  String get blockDone => 'Ulanyjy bloklandy';
+
+  @override
+  String get unblockDone => 'Ulanyjy blokdan aýryldy';
+
+  @override
+  String get blockedBanner =>
+      'Siz bu ulanyjyny blokladyňyz. Biri-biriňiziň syýahatlaryňyzy görmeýärsiňiz.';
+
+  @override
+  String get blockedUsersEmpty => 'Siz hiç kimi bloklamadyňyz';
+
+  @override
+  String get blockedUsersHint => 'Ulanyjyny onuň profilinden bloklap bolýar.';
+
+  @override
+  String get reportUser => 'Şikaýat et';
+
+  @override
+  String get reportTrip => 'Syýahat barada şikaýat et';
+
+  @override
+  String get reportTitle => 'Ulanyjy barada şikaýat';
+
+  @override
+  String reportAbout(String name) {
+    return '$name barada näme üçin şikaýat edýärsiňiz?';
+  }
+
+  @override
+  String get reportReasonSpam => 'Spam ýa-da mahabat';
+
+  @override
+  String get reportReasonFraud => 'Kezzaplyk ýa-da öňünden pul soramak';
+
+  @override
+  String get reportReasonAbuse => 'Kemsitmek ýa-da haýbat atmak';
+
+  @override
+  String get reportReasonNoShow => 'Syýahata gelmedi';
+
+  @override
+  String get reportReasonUnsafe =>
+      'Howply sürmek ýa-da özüni howply alyp barmak';
+
+  @override
+  String get reportReasonFakeProfile => 'Galp profil';
+
+  @override
+  String get reportReasonInappropriateContent => 'Ýerliksiz surat ýa-da tekst';
+
+  @override
+  String get reportReasonOther => 'Başga zat';
+
+  @override
+  String get reportDetails => 'Näme boldy';
+
+  @override
+  String get reportDetailsHint => 'Birnäçe söz bize çalt düşünmäge kömek eder';
+
+  @override
+  String get reportDetailsRequired => 'Näme bolandygyny ýazyň';
+
+  @override
+  String get reportSubmit => 'Şikaýaty iber';
+
+  @override
+  String get reportSent =>
+      'Şikaýat iberildi. Biz her şikaýaty gözden geçirýäris.';
+
+  @override
+  String get reportNote =>
+      'Şikaýat Ýolugra toparyna barýar. Ulanyjy bu barada habar almaýar.';
+
+  @override
+  String get legalTerms => 'Ulanyş şertleri';
+
+  @override
+  String get legalPrivacy => 'Gizlinlik syýasaty';
+
+  @override
+  String get authLegalNote =>
+      'Dowam etmek bilen siz ulanyş şertlerini we gizlinlik syýasatyny kabul edýärsiňiz.';
+
+  @override
+  String get linkOpenError => 'Baglanyşygy açyp bolmady';
 
   @override
   String get filterAny => 'Islendik';

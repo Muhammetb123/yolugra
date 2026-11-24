@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import '../../../../app/localization/l10n.dart';
 import '../../../../core/utils/formatters.dart';
 import '../../../../core/widgets/user_avatar.dart';
+import '../../../profile/presentation/widgets/user_labels.dart';
 import '../../../trips/presentation/widgets/trip_labels.dart';
 import '../../domain/booking.dart';
 
@@ -44,7 +45,7 @@ class BookingCard extends StatelessWidget {
                 Row(children: [
                   UserAvatar(name: trip.driver.fullName, photoUrl: trip.driver.photoUrl, radius: 16),
                   const SizedBox(width: 8),
-                  Expanded(child: Text(trip.driver.fullName, style: theme.textTheme.bodyMedium)),
+                  Expanded(child: Text(l.userName(trip.driver), style: theme.textTheme.bodyMedium)),
                   Text('${l.seatsCount(booking.seats)} · ${fmt.price(trip.price)}', style: theme.textTheme.bodyMedium),
                 ]),
             ],

@@ -95,6 +95,8 @@ class _ProfileViewState extends State<_ProfileView> {
                 const Divider(indent: 56),
                 item(Icons.notifications_none_rounded, l.notificationsTitle, () => context.router.push(const NotificationsRoute())),
                 const Divider(indent: 56),
+                item(Icons.block_rounded, l.profileBlockedUsers, () => context.router.push(const BlockedUsersRoute())),
+                const Divider(indent: 56),
                 item(Icons.settings_outlined, l.profileSettings, () => context.router.push(const SettingsRoute())),
               ]),
             ),
@@ -108,6 +110,13 @@ class _ProfileViewState extends State<_ProfileView> {
               },
               icon: const Icon(Icons.logout_rounded),
               label: Text(l.profileLogout),
+            ),
+            // Quieter than sign-out: it only opens the page that explains the deletion.
+            TextButton.icon(
+              style: TextButton.styleFrom(foregroundColor: Theme.of(context).colorScheme.onSurfaceVariant),
+              onPressed: () => context.router.push(const DeleteAccountRoute()),
+              icon: const Icon(Icons.delete_outline_rounded),
+              label: Text(l.profileDeleteAccount),
             ),
           ],
         ),

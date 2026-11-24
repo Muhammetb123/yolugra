@@ -35,7 +35,8 @@ lib/
 ```
 
 Features: authentication, profile, vehicle, locations, home, trip_search, trip_details,
-trip_publication, my_trips, bookings, reviews, notifications, settings. `trips` holds the shared
+trip_publication, my_trips, bookings, reviews, notifications, moderation (blocks and reports),
+settings. `trips` holds the shared
 trip domain, mappers and widgets used by search, details, publication and my_trips.
 
 Decisions:
@@ -60,6 +61,13 @@ Decisions:
   language. Push (FCM) is not integrated: it needs a Firebase project and platform setup; the
   backend already stores events and has a `device_tokens` table, so FCM can be added as another
   delivery channel without changing screens.
+- **Deleted accounts.** The backend keeps past trips and bookings of a deleted account and marks
+  the embedded user with `deleted: true`. `UserSummary.deleted` carries it, every screen prints
+  the name through `l.userName(user)` (`profile/presentation/widgets/user_labels.dart`), and a
+  deleted user is never a link to a profile or a review form.
+- **Legal pages.** The privacy policy and the terms live on the public site (`../website`).
+  `LegalLinks` opens them in the browser in the app language; the site address is the build-time
+  `WEBSITE_URL`, and without it the links are not shown.
 - **No payments**, wallets or card storage anywhere. Price is a nullable number with a currency.
 
 ## Dependencies

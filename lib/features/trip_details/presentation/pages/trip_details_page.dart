@@ -61,7 +61,20 @@ class _TripDetailsView extends StatelessWidget {
       builder: (context, state) {
         final trip = state.trip;
         return Scaffold(
-          appBar: AppBar(title: Text(l.tripTitle)),
+          appBar: AppBar(
+            title: Text(l.tripTitle),
+            actions: [
+              // Someone else's trip can be reported; the report names the driver and this trip.
+              if (trip != null && !trip.isMine && !trip.driver.deleted)
+                PopupMenuButton<bool>(
+                  onSelected: (_) =>
+                      context.router.push(ReportUserRoute(userId: trip.driver.id, name: trip.driver.fullName, tripId: trip.id)),
+                  itemBuilder: (_) => [
+                    PopupMenuItem(value: true, child: ListTile(leading: const Icon(Icons.flag_outlined), title: Text(l.reportTrip))),
+                  ],
+                ),
+            ],
+          ),
           body: switch ((state.status, trip)) {
             (LoadStatus.failure, null) => ErrorView(error: state.error!, onRetry: context.read<TripDetailsCubit>().load),
             (_, null) => const LoadingView(),
@@ -114,7 +127,7 @@ class _Body extends StatelessWidget {
         const SizedBox(height: 12),
         PriceSection(trip: trip, segment: highlight ?? trip.defaultSegment),
         const SizedBox(height: 12),
-        DriverSection(driver: trip.driver, onTap: () => context.router.push(PublicProfileRoute(userId: trip.driver.id))),
+        DriverSection(driver: trip.driver, onTap: () => context.router.push(PublicProfileRoute(userId: trip.driver.id, tripId: trip.id))),
         if (trip.vehicle != null) ...[
           const SizedBox(height: 12),
           VehicleSection(vehicle: trip.vehicle!, plateVisible: trip.isMine || (trip.viewer?.bookingStatus?.contactVisible ?? false)),

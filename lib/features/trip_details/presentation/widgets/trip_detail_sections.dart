@@ -7,6 +7,7 @@ import '../../../../core/widgets/rating.dart';
 import '../../../../core/widgets/section_card.dart';
 import '../../../../core/widgets/user_avatar.dart';
 import '../../../profile/domain/profile.dart';
+import '../../../profile/presentation/widgets/user_labels.dart';
 import '../../../trips/domain/trip.dart';
 import '../../../trips/presentation/widgets/trip_labels.dart';
 import '../../../vehicle/domain/vehicle.dart';
@@ -44,6 +45,8 @@ class PriceSection extends StatelessWidget {
   }
 }
 
+/// The driver with rating and trip count; a tap opens the profile. A deleted account
+/// has neither, so it shows only the placeholder name and does not react to taps.
 class DriverSection extends StatelessWidget {
   const DriverSection({super.key, required this.driver, required this.onTap});
 
@@ -58,15 +61,17 @@ class DriverSection extends StatelessWidget {
       clipBehavior: Clip.antiAlias,
       child: ListTile(
         contentPadding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-        onTap: onTap,
+        onTap: driver.deleted ? null : onTap,
         leading: UserAvatar(name: driver.fullName, photoUrl: driver.photoUrl, radius: 26),
-        title: Text(driver.fullName, style: theme.textTheme.titleMedium),
-        subtitle: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-          const SizedBox(height: 2),
-          RatingBadge(average: driver.ratingAvg, count: driver.ratingCount),
-          Text(l.completedTripsCount(driver.completedTrips), style: theme.textTheme.bodySmall),
-        ]),
-        trailing: const Icon(Icons.chevron_right_rounded),
+        title: Text(l.userName(driver), style: theme.textTheme.titleMedium),
+        subtitle: driver.deleted
+            ? null
+            : Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+                const SizedBox(height: 2),
+                RatingBadge(average: driver.ratingAvg, count: driver.ratingCount),
+                Text(l.completedTripsCount(driver.completedTrips), style: theme.textTheme.bodySmall),
+              ]),
+        trailing: driver.deleted ? null : const Icon(Icons.chevron_right_rounded),
       ),
     );
   }

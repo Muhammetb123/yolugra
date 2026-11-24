@@ -11,6 +11,22 @@
 part of 'app_router.dart';
 
 /// generated route for
+/// [BlockedUsersPage]
+class BlockedUsersRoute extends PageRouteInfo<void> {
+  const BlockedUsersRoute({List<PageRouteInfo>? children})
+    : super(BlockedUsersRoute.name, initialChildren: children);
+
+  static const String name = 'BlockedUsersRoute';
+
+  static PageInfo page = PageInfo(
+    name,
+    builder: (data) {
+      return const BlockedUsersPage();
+    },
+  );
+}
+
+/// generated route for
 /// [BookingDetailsPage]
 class BookingDetailsRoute extends PageRouteInfo<BookingDetailsRouteArgs> {
   BookingDetailsRoute({
@@ -91,6 +107,22 @@ class CompleteProfileRoute extends PageRouteInfo<void> {
     name,
     builder: (data) {
       return const CompleteProfilePage();
+    },
+  );
+}
+
+/// generated route for
+/// [DeleteAccountPage]
+class DeleteAccountRoute extends PageRouteInfo<void> {
+  const DeleteAccountRoute({List<PageRouteInfo>? children})
+    : super(DeleteAccountRoute.name, initialChildren: children);
+
+  static const String name = 'DeleteAccountRoute';
+
+  static PageInfo page = PageInfo(
+    name,
+    builder: (data) {
+      return const DeleteAccountPage();
     },
   );
 }
@@ -387,11 +419,13 @@ class PublicProfileRoute extends PageRouteInfo<PublicProfileRouteArgs> {
   PublicProfileRoute({
     Key? key,
     required String userId,
+    String? tripId,
     List<PageRouteInfo>? children,
   }) : super(
          PublicProfileRoute.name,
-         args: PublicProfileRouteArgs(key: key, userId: userId),
+         args: PublicProfileRouteArgs(key: key, userId: userId, tripId: tripId),
          rawPathParams: {'userId': userId},
+         rawQueryParams: {'trip': tripId},
          initialChildren: children,
        );
 
@@ -401,36 +435,45 @@ class PublicProfileRoute extends PageRouteInfo<PublicProfileRouteArgs> {
     name,
     builder: (data) {
       final pathParams = data.inheritedPathParams;
+      final queryParams = data.queryParams;
       final args = data.argsAs<PublicProfileRouteArgs>(
-        orElse: () =>
-            PublicProfileRouteArgs(userId: pathParams.getString('userId')),
+        orElse: () => PublicProfileRouteArgs(
+          userId: pathParams.getString('userId'),
+          tripId: queryParams.optString('trip'),
+        ),
       );
-      return PublicProfilePage(key: args.key, userId: args.userId);
+      return PublicProfilePage(
+        key: args.key,
+        userId: args.userId,
+        tripId: args.tripId,
+      );
     },
   );
 }
 
 class PublicProfileRouteArgs {
-  const PublicProfileRouteArgs({this.key, required this.userId});
+  const PublicProfileRouteArgs({this.key, required this.userId, this.tripId});
 
   final Key? key;
 
   final String userId;
 
+  final String? tripId;
+
   @override
   String toString() {
-    return 'PublicProfileRouteArgs{key: $key, userId: $userId}';
+    return 'PublicProfileRouteArgs{key: $key, userId: $userId, tripId: $tripId}';
   }
 
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) return true;
     if (other is! PublicProfileRouteArgs) return false;
-    return key == other.key && userId == other.userId;
+    return key == other.key && userId == other.userId && tripId == other.tripId;
   }
 
   @override
-  int get hashCode => key.hashCode ^ userId.hashCode;
+  int get hashCode => key.hashCode ^ userId.hashCode ^ tripId.hashCode;
 }
 
 /// generated route for
@@ -447,6 +490,87 @@ class PublishTripRoute extends PageRouteInfo<void> {
       return const PublishTripPage();
     },
   );
+}
+
+/// generated route for
+/// [ReportUserPage]
+class ReportUserRoute extends PageRouteInfo<ReportUserRouteArgs> {
+  ReportUserRoute({
+    Key? key,
+    required String userId,
+    String name = '',
+    String? tripId,
+    List<PageRouteInfo>? children,
+  }) : super(
+         ReportUserRoute.name,
+         args: ReportUserRouteArgs(
+           key: key,
+           userId: userId,
+           name: name,
+           tripId: tripId,
+         ),
+         rawPathParams: {'userId': userId},
+         rawQueryParams: {'trip': tripId},
+         initialChildren: children,
+       );
+
+  static const String name = 'ReportUserRoute';
+
+  static PageInfo page = PageInfo(
+    name,
+    builder: (data) {
+      final pathParams = data.inheritedPathParams;
+      final queryParams = data.queryParams;
+      final args = data.argsAs<ReportUserRouteArgs>(
+        orElse: () => ReportUserRouteArgs(
+          userId: pathParams.getString('userId'),
+          tripId: queryParams.optString('trip'),
+        ),
+      );
+      return ReportUserPage(
+        key: args.key,
+        userId: args.userId,
+        name: args.name,
+        tripId: args.tripId,
+      );
+    },
+  );
+}
+
+class ReportUserRouteArgs {
+  const ReportUserRouteArgs({
+    this.key,
+    required this.userId,
+    this.name = '',
+    this.tripId,
+  });
+
+  final Key? key;
+
+  final String userId;
+
+  final String name;
+
+  final String? tripId;
+
+  @override
+  String toString() {
+    return 'ReportUserRouteArgs{key: $key, userId: $userId, name: $name, tripId: $tripId}';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) return true;
+    if (other is! ReportUserRouteArgs) return false;
+    return key == other.key &&
+        userId == other.userId &&
+        name == other.name &&
+        tripId == other.tripId;
+  }
+
+  @override
+  int get hashCode =>
+      key.hashCode ^ userId.hashCode ^ name.hashCode ^ tripId.hashCode;
 }
 
 /// generated route for

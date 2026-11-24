@@ -4,6 +4,7 @@ import '../../../../app/localization/l10n.dart';
 import '../../../../app/theme/app_theme.dart';
 import '../../../../core/utils/formatters.dart';
 import '../../../../core/widgets/user_avatar.dart';
+import '../../../profile/presentation/widgets/user_labels.dart';
 import '../../domain/review.dart';
 
 class ReviewTile extends StatelessWidget {
@@ -24,7 +25,7 @@ class ReviewTile extends StatelessWidget {
             const SizedBox(width: 10),
             Expanded(
               child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-                Text(r.author.fullName, style: theme.textTheme.titleSmall),
+                Text(l.userName(r.author), style: theme.textTheme.titleSmall),
                 Text('${r.authorRole == ReviewerRole.driver ? l.reviewByDriver : l.reviewByPassenger} · ${Formatters.of(context).fullDate(r.createdAt)}',
                     style: theme.textTheme.bodySmall),
               ]),

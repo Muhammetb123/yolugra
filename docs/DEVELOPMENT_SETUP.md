@@ -23,7 +23,7 @@ The Android app in `../sms/delivery_sms_sender` polls `/gateway/v1/*` with a key
 ## 3. Phone over USB
 
 ```bash
-adb reverse tcp:8081 tcp:8081   # 127.0.0.1:8081 on the phone reaches the computer
+adb reverse tcp:8081 tcp:8081   # local backend only: 127.0.0.1:8081 on the phone reaches the computer
 ```
 
 Debug and profile builds allow plain HTTP for this (`android/app/src/debug|profile/AndroidManifest.xml`).
@@ -34,13 +34,23 @@ Release builds require HTTPS.
 ```bash
 flutter pub get
 dart run build_runner build --delete-conflicting-outputs   # routes (app_router.gr.dart)
-flutter run
-# another backend:
-flutter run --dart-define=API_BASE_URL=https://api.example.tm
+flutter run                     # production backend
+# local backend (with adb reverse above):
+flutter run --dart-define=API_BASE_URL=http://127.0.0.1:8081
 ```
 
-Configuration (`lib/core/config/app_config.dart`): `API_BASE_URL` (default `http://127.0.0.1:8081`),
-timeouts, notification polling interval.
+Configuration (`lib/core/config/app_config.dart`): `API_BASE_URL` (default `https://api.yolugra.tech`),
+`WEBSITE_URL` (default `https://yolugra.tech`), timeouts, notification polling interval.
+
+`WEBSITE_URL` is the address of the public site (`../website`) without a trailing slash. The app
+links to `<WEBSITE_URL>/<tk|ru|en>/privacy.html` and `/terms.html` from the sign-in screen and
+from Settings. `--dart-define=WEBSITE_URL=` (empty) hides the links.
+
+Release build for Google Play (the defaults already point at production):
+
+```bash
+flutter build appbundle
+```
 
 ## 5. After editing
 

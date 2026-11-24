@@ -91,7 +91,7 @@ class AppLocalizationsRu extends AppLocalizations {
   String get authPhoneLabel => 'Номер мобильного';
 
   @override
-  String get authPhoneHint => '6X XX XX XX';
+  String get authPhoneHint => 'XX XX XX XX';
 
   @override
   String get authSendCode => 'Получить код';
@@ -1335,6 +1335,178 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get noteSomeone => 'Пользователь';
+
+  @override
+  String get userDeleted => 'Удалённый пользователь';
+
+  @override
+  String get errorTripInProgress =>
+      'Поездка, в которой вы водитель, сейчас в пути. Сначала завершите её, затем удалите аккаунт.';
+
+  @override
+  String get profileBlockedUsers => 'Заблокированные пользователи';
+
+  @override
+  String get profileDeleteAccount => 'Удалить аккаунт';
+
+  @override
+  String get deleteAccountTitle => 'Удаление аккаунта';
+
+  @override
+  String get deleteAccountIntro =>
+      'Аккаунт и связанные с ним данные удаляются сразу. Отменить это нельзя.';
+
+  @override
+  String get deleteAccountRemovedTitle => 'Что удаляется';
+
+  @override
+  String get deleteAccountRemovedProfile =>
+      'Номер телефона, имя, фото и текст о себе';
+
+  @override
+  String get deleteAccountRemovedVehicles => 'Ваши машины и их фото';
+
+  @override
+  String get deleteAccountRemovedReviews => 'Отзывы о вас и ваш рейтинг';
+
+  @override
+  String get deleteAccountRemovedTexts =>
+      'Тексты, которые вы написали: описания поездок, места встречи, сообщения водителям и тексты отзывов';
+
+  @override
+  String get deleteAccountRemovedInbox =>
+      'Уведомления и список заблокированных пользователей';
+
+  @override
+  String get deleteAccountCancelled =>
+      'Опубликованные поездки и отправленные заявки отменяются, если поездка ещё не началась. Попутчики получат уведомление.';
+
+  @override
+  String get deleteAccountKeptTitle => 'Что остаётся';
+
+  @override
+  String get deleteAccountKeptHistory =>
+      'Прошедшие поездки и заявки остаются в истории ваших попутчиков. Вы показаны в них как «Удалённый пользователь», без имени, фото и телефона';
+
+  @override
+  String get deleteAccountKeptRatings =>
+      'Оценки, которые вы поставили другим, остаются в их рейтинге, без текста отзывов';
+
+  @override
+  String get deleteAccountKeptReports =>
+      'Жалобы, которые вы отправили на других пользователей';
+
+  @override
+  String get deleteAccountAfter =>
+      'С тем же номером можно зарегистрироваться снова, но это будет новый пустой аккаунт.';
+
+  @override
+  String get deleteAccountButton => 'Удалить мой аккаунт';
+
+  @override
+  String get deleteAccountConfirm =>
+      'Удалить аккаунт навсегда? Отменить это нельзя.';
+
+  @override
+  String get deleteAccountDone => 'Аккаунт удалён';
+
+  @override
+  String get blockUser => 'Заблокировать';
+
+  @override
+  String get unblockUser => 'Разблокировать';
+
+  @override
+  String blockConfirm(String name) {
+    return 'Заблокировать пользователя $name? Вы не будете видеть поездки друг друга и не сможете отправлять друг другу заявки.';
+  }
+
+  @override
+  String get blockDone => 'Пользователь заблокирован';
+
+  @override
+  String get unblockDone => 'Пользователь разблокирован';
+
+  @override
+  String get blockedBanner =>
+      'Вы заблокировали этого пользователя. Вы не видите поездки друг друга.';
+
+  @override
+  String get blockedUsersEmpty => 'Вы никого не заблокировали';
+
+  @override
+  String get blockedUsersHint =>
+      'Заблокировать пользователя можно из его профиля.';
+
+  @override
+  String get reportUser => 'Пожаловаться';
+
+  @override
+  String get reportTrip => 'Пожаловаться на поездку';
+
+  @override
+  String get reportTitle => 'Жалоба на пользователя';
+
+  @override
+  String reportAbout(String name) {
+    return 'Почему вы жалуетесь на пользователя $name?';
+  }
+
+  @override
+  String get reportReasonSpam => 'Спам или реклама';
+
+  @override
+  String get reportReasonFraud => 'Мошенничество или просьба заплатить заранее';
+
+  @override
+  String get reportReasonAbuse => 'Оскорбления или угрозы';
+
+  @override
+  String get reportReasonNoShow => 'Не приехал(а) на поездку';
+
+  @override
+  String get reportReasonUnsafe => 'Опасное вождение или поведение';
+
+  @override
+  String get reportReasonFakeProfile => 'Поддельный профиль';
+
+  @override
+  String get reportReasonInappropriateContent => 'Неприемлемое фото или текст';
+
+  @override
+  String get reportReasonOther => 'Другое';
+
+  @override
+  String get reportDetails => 'Что произошло';
+
+  @override
+  String get reportDetailsHint => 'Пара слов поможет нам быстрее разобраться';
+
+  @override
+  String get reportDetailsRequired => 'Опишите, что произошло';
+
+  @override
+  String get reportSubmit => 'Отправить жалобу';
+
+  @override
+  String get reportSent => 'Жалоба отправлена. Мы рассматриваем каждую жалобу.';
+
+  @override
+  String get reportNote =>
+      'Жалоба уходит команде Ýolugra. Пользователь не получает о ней уведомления.';
+
+  @override
+  String get legalTerms => 'Пользовательское соглашение';
+
+  @override
+  String get legalPrivacy => 'Политика конфиденциальности';
+
+  @override
+  String get authLegalNote =>
+      'Продолжая, вы принимаете пользовательское соглашение и политику конфиденциальности.';
+
+  @override
+  String get linkOpenError => 'Не удалось открыть ссылку';
 
   @override
   String get filterAny => 'Любой';
